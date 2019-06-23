@@ -1,0 +1,15 @@
+## Interface: 80100
+## Title:|cffffd200PocketPortals|r
+## Version: 0.1
+## Notes: Collection of spells, toys and items for travelling around Azeroth.
+## Author: Pavel Hristov
+## DefaultState: enabled
+## SavedVariables: PocketPortalsAddonDB
+## X-Category: Miscellaneous
+
+libs\LibDBIcon-1.0\embeds.xml
+libs\LibDBIcon-1.0\LibDBIcon-1.0\lib.xml
+
+source.lua
+config.lua
+init.lua
