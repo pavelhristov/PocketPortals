@@ -81,15 +81,15 @@ end
 ---------------------------------------------------------------
 
 local function initDb()
-    PocketPortalsAddonDB = nil
     if (not PocketPortalsAddonDB) then PocketPortalsAddonDB = {} end
     core.db = PocketPortalsAddonDB
     local version = GetAddOnMetadata(ADDON_NAME, 'Version')
     if (not core.db.version) then
         core.db.version = version
     elseif (core.db.version ~= version) then
-        PocketPortalsAddonDB = {}
-        core.db = PocketPortalsAddonDB
+        core.db.theme = nil
+        core.db.position = nil
+        core.db.version = version
     end
     if (not core.db.theme) then core.db.theme = '9CF700' end
     if (not core.db.position) then core.db.position = {} end

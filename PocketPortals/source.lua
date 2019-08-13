@@ -114,7 +114,12 @@ Source['Miscellaneous'] = {
     {id = 51558, type = 'item', name = 'Runed Loop of the Kirin Tor'},
     {id = 51559, type = 'item', name = 'Runed Ring of the Kirin Tor'},
     {id = 51557, type = 'item', name = 'Runed Signet of the Kirin Tor'},
-    {id = 139599, type = 'item', name = 'Empowered Ring of the Kirin Tor'}
+    {id = 139599, type = 'item', name = 'Empowered Ring of the Kirin Tor'},
+    -- 8.2
+    {id = 169298, type = 'toy', name = 'Frostwolf Insignia', faction = 'Horde'},
+    {id = 169297, type = 'toy', name = 'Stormpike Insignia', faction = 'Alliance'},
+    {id = 168808, type = 'toy', name = 'Wormhole Generator: Zandalar'},
+    {id = 168807, type = 'toy', name = 'Wormhole Generator: Kul Tiras'}
 }
 
 Source['Class Portals'] = {
@@ -197,5 +202,7 @@ Source['Hearthstones'] = {
     {id = 142542, type = 'toy', name = 'Tome of Town Portal', unobtainable = true},
     {id = 142543, type = 'item', name = 'Scroll of Town Portal', unobtainable = true},
     {id = 28585, type = 'item', name = 'Ruby Slippers'},
-    {id = 142298, type = 'item', name = 'Astonishingly Scarlet Slippers'}
+    {id = 142298, type = 'item', name = 'Astonishingly Scarlet Slippers'},
+    -- 8.2
+    {id = 168907, type = 'toy', name = 'Holographic Digitalization Hearthstone'}
 }
