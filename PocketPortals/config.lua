@@ -6,6 +6,7 @@ core.Config = {}
 
 local Config = core.Config
 local UIConfig
+local availableTab, unobtainedTab
 
 local BTN_SPACING = 5
 local BTN_SIZE = 37
@@ -76,9 +77,7 @@ local function setupScrollFrame(parent, frameToStartFrom)
 end
 
 local function generateChatLinkHandler(self, button)
-    if(core.Config.debug)then
-        print(self:GetAttribute('itemid'))
-    end
+    if (core.Config.debug) then print(self:GetAttribute('itemid')) end
 
     if (button == 'RightButton' and IsShiftKeyDown()) then
         if (not self.Link) then
@@ -121,7 +120,8 @@ local function showDescriptionHandler(self)
 end
 
 local function createItemSlot(par, item, type, isDisabled)
-    local btn = CreateFrame('BUTTON', nil, par, 'ActionButtonTemplate, InsecureActionButtonTemplate')
+    local btn = core.Frames.buttons:get()
+    btn:SetParent(par)
     btn:SetSize(BTN_SIZE, BTN_SIZE)
     btn:SetAttribute('type', item.type)
     btn:SetAttribute('itemid', item.id)
@@ -138,7 +138,8 @@ local function createItemSlot(par, item, type, isDisabled)
     btn:SetAttribute('checkselfcast', '1')
     btn:SetAttribute('checkfocuscast', '1')
 
-    btn.cd = CreateFrame('Cooldown', 'myCooldown', btn, 'CooldownFrameTemplate')
+    btn.cd = core.Frames.cooldowns:get()
+    btn.cd:SetParent(btn)
     btn.cd:SetAllPoints()
     local start, duration = GetItemCooldown(item.id)
     btn.cd:SetCooldown(start, duration)
@@ -157,7 +158,7 @@ end
 
 local function buildSection(parent, section, items, isDisabled)
     if (#items > 0) then
-        local title = parent:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+        local title = core.Frames.titles:get(parent)
         title:SetPoint('TOPLEFT', parent, 'TOPLEFT', BTN_SPACING, -BTN_SPACING - parent.margin)
         title:SetText(section)
 
@@ -176,6 +177,36 @@ local function buildSection(parent, section, items, isDisabled)
 
         parent.margin = parent.margin + BTN_SPACING + SECTION_MARGIN + (BTN_SIZE + BTN_SPACING) * (row + 1)
     end
+end
+
+local function build(availableTab, unobtainedTab)
+    local faction = UnitFactionGroup('player')
+    local class = UnitClass('player')
+    for i = 1, #core.sourceOrder do
+        local section = core.sourceOrder[i]
+        local items = core.Source[section]
+        local obtainedItems = {}
+        local unobtainedItems = {}
+
+        for i = 1, #items do
+            if ((not items[i].class or items[i].class == class) and
+                (not items[i].faction or items[i].faction == faction)) then
+                if ((items[i].type == 'item' and GetItemCount(items[i].id) > 0) or
+                    (items[i].type == 'spell' and IsPlayerSpell(items[i].id)) or
+                    (items[i].type == 'toy' and PlayerHasToy(items[i].id))) then
+                    table.insert(obtainedItems, items[i])
+                elseif ((not items[i].unobtainable)) then
+                    table.insert(unobtainedItems, items[i])
+                end
+            end
+        end
+
+        buildSection(availableTab, section, obtainedItems)
+        buildSection(unobtainedTab, section, unobtainedItems, true)
+    end
+
+    availableTab:SetSize(308, availableTab.margin + BTN_SPACING)
+    unobtainedTab:SetSize(308, unobtainedTab.margin + BTN_SPACING)
 end
 
 --------------------------------------------------------------
@@ -205,44 +236,38 @@ function Config:CreateMenu()
     end)
 
     UIConfig.Title:ClearAllPoints()
-    UIConfig.Title:SetPoint('CENTER', PocketPortalsTitleBG, 'CENTER', 6, 1)
+    UIConfig.Title:SetPoint('CENTER', PocketPortalsTitleBG, 'CENTER', 0, 1)
     UIConfig.Title:SetText(ADDON_NAME .. ' v' .. core.db.version)
 
-    UIConfig.ScrollFrame = setupScrollFrame(UIConfig, PocketPortalsDialogBG)
+    local refreshBtn = CreateFrame('Button', nil, UIConfig, 'GameMenuButtonTemplate')
 
-    local availableTab, unobtainedTab = SetTabs(UIConfig, 2, 'Available', 'Unobtained')
+    refreshBtn:SetSize(70, 20)
+    refreshBtn:SetPoint('RIGHT', PocketPortalsTitleBG, 'RIGHT', -15, 1)
+    refreshBtn:SetText('refresh')
+    refreshBtn:SetNormalFontObject('GameFontNormalLarge')
+    refreshBtn:SetHighlightFontObject('GameFontHighlightLarge')
+    refreshBtn:SetScript('OnClick', Config.Refresh)
+
+    UIConfig.ScrollFrame = setupScrollFrame(UIConfig, PocketPortalsDialogBG)
+    availableTab, unobtainedTab = SetTabs(UIConfig, 2, 'Available', 'Unobtained')
 
     -- Available and Unobtained Tabs
 
-    local faction = UnitFactionGroup('player')
-    local class = UnitClass('player')
-    for i = 1, #core.sourceOrder do
-        local section = core.sourceOrder[i]
-        local items = core.Source[section]
-        local obtainedItems = {}
-        local unobtainedItems = {}
-
-        for i = 1, #items do
-            if ((not items[i].class or items[i].class == class) and
-                (not items[i].faction or items[i].faction == faction)) then
-                if ((items[i].type == 'item' and GetItemCount(items[i].id) > 0) or
-                    (items[i].type == 'spell' and IsPlayerSpell(items[i].id)) or
-                    (items[i].type == 'toy' and PlayerHasToy(items[i].id))) then
-                    table.insert(obtainedItems, items[i])
-                elseif ((not items[i].unobtainable)) then
-                    table.insert(unobtainedItems, items[i])
-                end
-            end
-        end
-
-        buildSection(availableTab, section, obtainedItems)
-        buildSection(unobtainedTab, section, unobtainedItems, true)
-    end
-
-    availableTab:SetSize(308, availableTab.margin + BTN_SPACING)
-    unobtainedTab:SetSize(308, unobtainedTab.margin + BTN_SPACING)
+    build(availableTab, unobtainedTab)
+    tinsert(UISpecialFrames, UIConfig:GetName())
 
     UIConfig:Hide()
     return UIConfig
 end
 
+function Config:Refresh()
+    if (core.Config.debug) then core:Print('Refreshing collection...') end
+    core.Frames.buttons:recycle()
+    core.Frames.titles:recycle()
+    core.Frames.cooldowns:recycle()
+
+    availableTab.margin = 0;
+    unobtainedTab.margin = 0;
+    
+    build(availableTab, unobtainedTab)
+end

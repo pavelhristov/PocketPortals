@@ -8,6 +8,7 @@ core.commands = {
         print('-------------------------------------------------')
         core:Print('List of slash commands:')
         core:Print('|cff00cc66/pp|r - toggle ui')
+        core:Print('|cff00cc66/pp refresh|r - refreshes collection')
         core:Print('|cff00cc66/pp help|r - shows help info')
         core:Print('|cff00cc66/pp debug|r - toggle debug mode')
     end,
@@ -18,6 +19,9 @@ core.commands = {
         else
             core:Print('Debug mode off!')
         end
+    end,
+    ['refresh'] = function() 
+        core.Config:Refresh()
     end
 }
 
