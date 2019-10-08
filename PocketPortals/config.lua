@@ -217,10 +217,48 @@ function Config:Toggle()
     menu:SetShown(not menu:IsShown())
 end
 
+local Favorites
+local function buildFavorites()
+    -- Favorites
+    local btn = CreateFrame('BUTTON', 'PocketPortalsFavorites', UIParent, 'UIPanelButtonTemplate')
+    btn:SetNormalTexture('Interface\\Icons\\Spell_arcane_portalshattrath')
+    btn:SetPoint('CENTER', nil, 'CENTER', 0, 0)
+    btn:SetSize(50, 50)
+    btn.toggle = false
+    btn:SetMovable(true)
+    btn:RegisterForDrag('LeftButton')
+    btn:SetScript('OnDragStart', btn.StartMoving)
+    btn:SetScript('OnDragStop', btn.StopMovingOrSizing)
+    btn:RegisterForClicks('RightButtonDown')
+    btn:SetScript('OnClick', function(self, button)
+        if (button == 'RightButton') then
+            self.toggle = not self.toggle
+            Favorites:SetShown(self.toggle)
+        end
+    end)
+
+    Favorites = CreateFrame('Frame', 'PocketPortalsFavorites', btn)
+    Favorites:SetSize(200, 200)
+    Favorites:SetPoint('CENTER', btn, 'CENTER', 0, 0)
+
+    local PI = 3.1415926535898
+    local slots = 9
+    local radians = PI * 2 / slots
+    local radius = 75
+    for i = 1, slots do
+        local btn = createItemSlot(Favorites, core.Source['Hearthstones'][i], isDisabled)
+        local a = - radians * (i - 1) - PI -- start from left and reverse rotation
+        local x, y = math.cos(a) * radius, math.sin(a) * radius
+        btn:SetPoint('CENTER', Favorites, 'CENTER', x, y)
+    end
+end
+
+buildFavorites()
+
 function Config:CreateMenu()
     UIConfig = CreateFrame('Frame', 'PocketPortals', UIParent, 'UIPanelDialogTemplate')
     UIConfig:SetSize(340, 400)
-    UIConfig:SetPoint(core.db.position.point, _, core.db.position.relativePoint, core.db.position.xOfs,
+    UIConfig:SetPoint(core.db.position.point, nil, core.db.position.relativePoint, core.db.position.xOfs,
                       core.db.position.yOfs)
     UIConfig:EnableMouse(true)
     UIConfig:SetMovable(true)
@@ -239,6 +277,7 @@ function Config:CreateMenu()
     UIConfig.Title:SetPoint('CENTER', PocketPortalsTitleBG, 'CENTER', 0, 1)
     UIConfig.Title:SetText(ADDON_NAME .. ' v' .. core.db.version)
 
+    -- Refresh
     local refreshBtn = CreateFrame('Button', nil, UIConfig, 'GameMenuButtonTemplate')
 
     refreshBtn:SetSize(70, 20)
@@ -266,8 +305,8 @@ function Config:Refresh()
     core.Frames.titles:recycle()
     core.Frames.cooldowns:recycle()
 
-    availableTab.margin = 0;
-    unobtainedTab.margin = 0;
-    
+    availableTab.margin = 0
+    unobtainedTab.margin = 0
+
     build(availableTab, unobtainedTab)
 end

@@ -1,6 +1,6 @@
-## Interface: 80200
+## Interface: 80205
 ## Title:|cffffd200PocketPortals|r
-## Version: 0.2
+## Version: 0.3
 ## Notes: Collection of spells, toys and items for travelling around Azeroth.
 ## Author: Pavel Hristov
 ## DefaultState: enabled

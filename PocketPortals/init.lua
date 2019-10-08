@@ -101,6 +101,8 @@ local function initDb()
     core.db.position.relativePoint = core.db.position.relativePoint or 'CENTER'
     core.db.position.xOfs = core.db.position.xOfs or 0
     core.db.position.yOfs = core.db.position.yOfs or 0
+    
+    core.db.favorites = core.db.favorites or {}
 end
 
 ---------------------------------------------------------------

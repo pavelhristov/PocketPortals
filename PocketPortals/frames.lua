@@ -10,6 +10,12 @@ local Frames = core.Frames
 -- UI Helper functions and EventHandlers
 --------------------------------------------------------------
 
+local function getIndex(tab, val)
+    local index = nil
+    for i, v in ipairs(tab) do if (v.id == val) then index = i end end
+    return index
+end
+
 Frames.buttons = {
     _pool = {},
     _used = {},
@@ -25,7 +31,15 @@ Frames.buttons = {
         table.insert(self._used, btn)
         return btn
     end,
-    recycle = function(self)
+    recycle = function(self, item)
+        if (item) then
+            local index = getIndex(self._used, item)
+            if (not index == nil) then
+                table.remove(self._used, index)
+                return
+            end
+        end
+
         while (#self._used > 0) do
             local btn = table.remove(self._used)
             btn:SetParent(nil)
@@ -51,7 +65,15 @@ Frames.cooldowns = {
         table.insert(self._used, cd)
         return cd
     end,
-    recycle = function (self)
+    recycle = function(self, item)
+        if (item) then
+            local index = getIndex(self._used, item)
+            if (not index == nil) then
+                table.remove(self._used, index)
+                return
+            end
+        end
+        
         while (#self._used > 0) do
             local cd = table.remove(self._used)
             cd:SetParent(nil)
@@ -75,12 +97,12 @@ Frames.titles = {
         else
             title = parent:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
         end
-        
+
         table.insert(self._used[parent], title)
         return title
     end,
     recycle = function(self)
-        for k in pairs(self._used) do 
+        for k in pairs(self._used) do
             if (not self._pool[k]) then self._pool[k] = {} end
             while (#self._used[k] > 0) do
                 local title = table.remove(self._used[k])
@@ -88,7 +110,7 @@ Frames.titles = {
                 title:SetText(nil)
                 title:SetPoint('TOPLEFT', parent, 'TOPLEFT', 0, 0)
                 table.insert(self._pool[k], title)
-            end 
+            end
         end
     end
 }
