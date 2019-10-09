@@ -5,6 +5,7 @@
 ## Author: Pavel Hristov
 ## DefaultState: enabled
 ## SavedVariables: PocketPortalsAddonDB
+## SavedVariablesPerCharacter: PPFavoritesDB
 ## X-Category: Miscellaneous
 
 libs\LibDBIcon-1.0\embeds.xml

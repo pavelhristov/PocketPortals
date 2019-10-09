@@ -102,7 +102,16 @@ local function initDb()
     core.db.position.xOfs = core.db.position.xOfs or 0
     core.db.position.yOfs = core.db.position.yOfs or 0
     
-    core.db.favorites = core.db.favorites or {}
+    if (not PPFavoritesDB) then PPFavoritesDB = {position = {}, collection = {}, slots = 9} end
+    core.favoritesDB = PPFavoritesDB
+    core.favoritesDB.position = core.favoritesDB.position or {}
+    core.favoritesDB.position.point = core.favoritesDB.position.point or 'CENTER'
+    core.favoritesDB.position.relativePoint = core.favoritesDB.position.relativePoint or 'CENTER'
+    core.favoritesDB.position.xOfs = core.favoritesDB.position.xOfs or 0
+    core.favoritesDB.position.yOfs = core.favoritesDB.position.yOfs or 0
+    core.favoritesDB.collection = core.favoritesDB.collection or {}
+    core.favoritesDB.slots = core.favoritesDB.slots or 9
+    print(core.favoritesDB.position.point)
 end
 
 ---------------------------------------------------------------
@@ -117,6 +126,8 @@ function core:init(event, name)
     SlashCmdList.PocketPortals = HandleSlashCommand
     setupMinimapButton()
     print(GetBuildInfo())
+
+    core.Config:BuildFavorites()
 end
 
 local events = CreateFrame('Frame')

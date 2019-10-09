@@ -119,12 +119,35 @@ local function showDescriptionHandler(self)
     GameTooltip:Show()
 end
 
+local function toggleFavoritesHandler(self, button)
+    if (button == 'RightButton' and not IsShiftKeyDown() and not IsControlKeyDown() and not IsAltKeyDown()) then
+        local index = nil
+        for i, v in ipairs(core.favoritesDB.collection) do
+            if (v.id == self.item.id) then
+                index = i
+                break
+            end
+        end
+
+        if (index) then
+            table.remove(core.favoritesDB.collection, index)
+            -- TODO: rebuild favorites
+        elseif (#core.favoritesDB.collection < core.favoritesDB.slots) then
+            table.insert(core.favoritesDB.collection, self.item)
+            -- TODO: rebuild favorites
+        else
+            core:Print('You can not have more than ' .. core.favoritesDB.slots .. ' favorites!')
+        end
+    end
+end
+
 local function createItemSlot(par, item, type, isDisabled)
     local btn = core.Frames.buttons:get()
     btn:SetParent(par)
     btn:SetSize(BTN_SIZE, BTN_SIZE)
     btn:SetAttribute('type', item.type)
     btn:SetAttribute('itemid', item.id)
+    btn.item = item
 
     local icon
     if (item.type == 'spell') then
@@ -152,6 +175,8 @@ local function createItemSlot(par, item, type, isDisabled)
     else
         btn:HookScript('OnClick', generateChatLinkHandler)
     end
+
+    btn:HookScript('OnClick', toggleFavoritesHandler)
 
     return btn
 end
@@ -217,43 +242,57 @@ function Config:Toggle()
     menu:SetShown(not menu:IsShown())
 end
 
-local Favorites
-local function buildFavorites()
+local function buildFavoritesButtons(parent)
+    local PI = 3.1415926535898
+    local radians = PI * 2 / core.favoritesDB.slots
+    local radius = 75
+    for i = 1, #core.favoritesDB.collection do
+        local btn = createItemSlot(parent, core.favoritesDB.collection[i], isDisabled)
+        local a = -radians * (i - 1) - PI -- start from left and reverse rotation
+        local x, y = math.cos(a) * radius, math.sin(a) * radius
+        btn:SetPoint('CENTER', parent, 'CENTER', x, y)
+    end
+end
+
+function Config:BuildFavorites()
     -- Favorites
+    -- TODO:
+    -- add a start icon to favorite items
+    -- rebuild favorites on add/remove
+    -- toggle favorites
+
     local btn = CreateFrame('BUTTON', 'PocketPortalsFavorites', UIParent, 'UIPanelButtonTemplate')
     btn:SetNormalTexture('Interface\\Icons\\Spell_arcane_portalshattrath')
-    btn:SetPoint('CENTER', nil, 'CENTER', 0, 0)
-    btn:SetSize(50, 50)
-    btn.toggle = false
+    btn:SetPoint(core.favoritesDB.position.point, nil, core.favoritesDB.position.relativePoint,
+                 core.favoritesDB.position.xOfs, core.favoritesDB.position.yOfs)
+    btn:SetSize(30, 30)
     btn:SetMovable(true)
     btn:RegisterForDrag('LeftButton')
     btn:SetScript('OnDragStart', btn.StartMoving)
     btn:SetScript('OnDragStop', btn.StopMovingOrSizing)
+    btn:HookScript('OnDragStop', function(self)
+        local point, _, relativePoint, xOfs, yOfs = self:GetPoint()
+        core.favoritesDB.position.point = point
+        core.favoritesDB.position.relativePoint = relativePoint
+        core.favoritesDB.position.xOfs = xOfs
+        core.favoritesDB.position.yOfs = yOfs
+    end)
+
     btn:RegisterForClicks('RightButtonDown')
     btn:SetScript('OnClick', function(self, button)
         if (button == 'RightButton') then
-            self.toggle = not self.toggle
-            Favorites:SetShown(self.toggle)
+            core.favoritesDB.isHidden = not core.favoritesDB.isHidden
+            self.Favorites:SetShown(not core.favoritesDB.isHidden)
         end
     end)
 
-    Favorites = CreateFrame('Frame', 'PocketPortalsFavorites', btn)
-    Favorites:SetSize(200, 200)
-    Favorites:SetPoint('CENTER', btn, 'CENTER', 0, 0)
+    btn.Favorites = CreateFrame('Frame', 'PocketPortalsFavorites', btn)
+    btn.Favorites:SetSize(200, 200)
+    btn.Favorites:SetPoint('CENTER', btn, 'CENTER', 0, 0)
+    btn.Favorites:SetShown(not core.favoritesDB.isHidden)
 
-    local PI = 3.1415926535898
-    local slots = 9
-    local radians = PI * 2 / slots
-    local radius = 75
-    for i = 1, slots do
-        local btn = createItemSlot(Favorites, core.Source['Hearthstones'][i], isDisabled)
-        local a = - radians * (i - 1) - PI -- start from left and reverse rotation
-        local x, y = math.cos(a) * radius, math.sin(a) * radius
-        btn:SetPoint('CENTER', Favorites, 'CENTER', x, y)
-    end
+    buildFavoritesButtons(btn.Favorites)
 end
-
-buildFavorites()
 
 function Config:CreateMenu()
     UIConfig = CreateFrame('Frame', 'PocketPortals', UIParent, 'UIPanelDialogTemplate')
