@@ -8,6 +8,7 @@ core.commands = {
         print('-------------------------------------------------')
         core:Print('List of slash commands:')
         core:Print('|cff00cc66/pp|r - toggle ui')
+        core:Print('|cff00cc66/pp favorites|r - toggles favorites ui')
         core:Print('|cff00cc66/pp refresh|r - refreshes collection')
         core:Print('|cff00cc66/pp help|r - shows help info')
         core:Print('|cff00cc66/pp debug|r - toggle debug mode')
@@ -22,6 +23,9 @@ core.commands = {
     end,
     ['refresh'] = function() 
         core.Config:Refresh()
+    end,
+    ['favorites'] = function()
+        core.Config.ToggleFavorites()
     end
 }
 
@@ -69,7 +73,13 @@ local function setupMinimapButton()
         type = 'launcher',
         text = ADDON_NAME,
         icon = 'Interface\\Icons\\Spell_arcane_portalshattrath',
-        OnClick = function() core.Config.Toggle() end,
+        OnClick = function() 
+            if (IsShiftKeyDown()) then
+                core.Config.ToggleFavorites()
+            else
+                core.Config.Toggle()
+            end
+        end,
         OnTooltipShow = function(tooltip)
             tooltip:AddLine(string.format('|cff%s%s|r', core.db.theme:upper(), ADDON_NAME .. ' v' .. core.db.version))
         end
@@ -111,7 +121,6 @@ local function initDb()
     core.favoritesDB.position.yOfs = core.favoritesDB.position.yOfs or 0
     core.favoritesDB.collection = core.favoritesDB.collection or {}
     core.favoritesDB.slots = core.favoritesDB.slots or 9
-    print(core.favoritesDB.position.point)
 end
 
 ---------------------------------------------------------------

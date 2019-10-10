@@ -6,6 +6,7 @@ core.Config = {}
 
 local Config = core.Config
 local UIConfig
+local Favorites
 local availableTab, unobtainedTab
 
 local BTN_SPACING = 5
@@ -161,7 +162,6 @@ local function createItemSlot(par, item, type, isDisabled)
     btn:SetAttribute('checkselfcast', '1')
     btn:SetAttribute('checkfocuscast', '1')
 
-    btn.cd = core.Frames.cooldowns:get()
     btn.cd:SetParent(btn)
     btn.cd:SetAllPoints()
     local start, duration = GetItemCooldown(item.id)
@@ -242,7 +242,13 @@ function Config:Toggle()
     menu:SetShown(not menu:IsShown())
 end
 
+function Config:ToggleFavorites()
+    Favorites:SetShown(not Favorites:IsShown())
+    print(Favorites:IsShown())
+end
+
 local function buildFavoritesButtons(parent)
+    -- TODO: add configuration
     local PI = 3.1415926535898
     local radians = PI * 2 / core.favoritesDB.slots
     local radius = 75
@@ -259,7 +265,6 @@ function Config:BuildFavorites()
     -- TODO:
     -- add a start icon to favorite items
     -- rebuild favorites on add/remove
-    -- toggle favorites
 
     local btn = CreateFrame('BUTTON', 'PocketPortalsFavorites', UIParent, 'UIPanelButtonTemplate')
     btn:SetNormalTexture('Interface\\Icons\\Spell_arcane_portalshattrath')
@@ -282,16 +287,18 @@ function Config:BuildFavorites()
     btn:SetScript('OnClick', function(self, button)
         if (button == 'RightButton') then
             core.favoritesDB.isHidden = not core.favoritesDB.isHidden
-            self.Favorites:SetShown(not core.favoritesDB.isHidden)
+            self.items:SetShown(not core.favoritesDB.isHidden)
         end
     end)
 
-    btn.Favorites = CreateFrame('Frame', 'PocketPortalsFavorites', btn)
-    btn.Favorites:SetSize(200, 200)
-    btn.Favorites:SetPoint('CENTER', btn, 'CENTER', 0, 0)
-    btn.Favorites:SetShown(not core.favoritesDB.isHidden)
+    btn.items = CreateFrame('Frame', 'PocketPortalsFavorites', btn)
+    btn.items:SetSize(200, 200)
+    btn.items:SetPoint('CENTER', btn, 'CENTER', 0, 0)
+    btn.items:SetShown(not core.favoritesDB.isHidden)
 
-    buildFavoritesButtons(btn.Favorites)
+    buildFavoritesButtons(btn.items)
+    Favorites = btn
+    return Favorites
 end
 
 function Config:CreateMenu()
@@ -342,10 +349,10 @@ function Config:Refresh()
     if (core.Config.debug) then core:Print('Refreshing collection...') end
     core.Frames.buttons:recycle()
     core.Frames.titles:recycle()
-    core.Frames.cooldowns:recycle()
 
     availableTab.margin = 0
     unobtainedTab.margin = 0
 
     build(availableTab, unobtainedTab)
+    buildFavoritesButtons(Favorites.items)
 end

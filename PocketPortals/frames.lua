@@ -19,6 +19,7 @@ end
 Frames.buttons = {
     _pool = {},
     _used = {},
+    _cooldowns = {},
     get = function(self)
         local btn
         if (#self._pool > 0) then
@@ -27,8 +28,17 @@ Frames.buttons = {
         else
             btn = CreateFrame('BUTTON', nil, nil, 'ActionButtonTemplate, InsecureActionButtonTemplate')
         end
+        
+        local cd
+        if (#self._cooldowns > 0) then
+            cd = table.remove(self._cooldowns)
+            cd:Show()
+        else
+            cd = CreateFrame('Cooldown', nil, nil, 'CooldownFrameTemplate')
+        end
 
         table.insert(self._used, btn)
+        btn.cd = cd
         return btn
     end,
     recycle = function(self, item)
@@ -44,41 +54,11 @@ Frames.buttons = {
             local btn = table.remove(self._used)
             btn:SetParent(nil)
             btn:Hide()
+            btn.cd:SetParent(nil)
+            btn.cd:Hide()
+            table.insert(self._cooldowns, btn.cd)
             btn.cd = nil
             table.insert(self._pool, btn)
-        end
-    end
-}
-
-Frames.cooldowns = {
-    _pool = {},
-    _used = {},
-    get = function(self)
-        local cd
-        if (#self._pool > 0) then
-            cd = table.remove(self._pool)
-            cd:Show()
-        else
-            cd = CreateFrame('Cooldown', nil, nil, 'CooldownFrameTemplate')
-        end
-
-        table.insert(self._used, cd)
-        return cd
-    end,
-    recycle = function(self, item)
-        if (item) then
-            local index = getIndex(self._used, item)
-            if (not index == nil) then
-                table.remove(self._used, index)
-                return
-            end
-        end
-        
-        while (#self._used > 0) do
-            local cd = table.remove(self._used)
-            cd:SetParent(nil)
-            cd:Hide()
-            table.insert(self._pool, cd)
         end
     end
 }
