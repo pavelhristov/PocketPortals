@@ -143,7 +143,7 @@ local function toggleFavoritesHandler(self, button)
 end
 
 local function createItemSlot(par, item, type, isDisabled)
-    local btn = core.Frames.buttons:get()
+    local btn = core.Frames.buttons.get()
     btn:SetParent(par)
     btn:SetSize(BTN_SIZE, BTN_SIZE)
     btn:SetAttribute('type', item.type)
@@ -183,7 +183,7 @@ end
 
 local function buildSection(parent, section, items, isDisabled)
     if (#items > 0) then
-        local title = core.Frames.titles:get(parent)
+        local title = core.Frames.titles.get(parent)
         title:SetPoint('TOPLEFT', parent, 'TOPLEFT', BTN_SPACING, -BTN_SPACING - parent.margin)
         title:SetText(section)
 
@@ -347,8 +347,8 @@ end
 
 function Config:Refresh()
     if (core.Config.debug) then core:Print('Refreshing collection...') end
-    core.Frames.buttons:recycle()
-    core.Frames.titles:recycle()
+    core.Frames.buttons.recycle()
+    core.Frames.titles.recycle()
 
     availableTab.margin = 0
     unobtainedTab.margin = 0
