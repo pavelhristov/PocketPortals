@@ -9,6 +9,10 @@ Spells, toys and items available to your character are bundled together by categ
 * Spells, toys and items in 'Available' are ready to use, however equipable items will first be equiped and used on second click (after equip cd, if any).
 * Spells, toys and items in 'Unobtained' tab are acquirable by your character.
 * Click **refresh** button to register newly learned spells or obtained items.
+* slash command **/pp favorites** or minimap shift-click button will toggle favorites ui.
+    * Right-Click to toggle favorites
+    * Left-Click to drag the ui
+    * Right-Click on available item to add or remove item from favorites(current limit is 9 and there is no indication in main ui)
 
 ### Known Issues
 * Druid's 'Teleport: Moonglade' appears in Unobtained after learning 'Dreamwalk'.
@@ -16,6 +20,6 @@ Spells, toys and items available to your character are bundled together by categ
 
 ### TODO List
 * All 'Known Issues' obviously
-* Favorites sections - *in progress*
-* Configurations for minimap button, ordering and probably
+* Add a start(simular to collections) for favorites
+* Configurations for minimap button, ordering and probably favorites
 * Auto update when spell, toy or item is aqcuired
