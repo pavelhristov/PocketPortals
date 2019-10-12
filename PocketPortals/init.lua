@@ -25,13 +25,13 @@ core.commands = {
         core.Config:Refresh()
     end,
     ['favorites'] = function()
-        core.Config.ToggleFavorites()
+        core.ui.Favorites.Toggle()
     end
 }
 
 local function HandleSlashCommand(str)
     if (#str == 0) then
-        core.Config.Toggle()
+        core.ui.MainUI.Toggle()
         return
     end
 
@@ -62,32 +62,6 @@ end
 function core:Print(...)
     local prefix = string.format('|cff%s%s|r', core.db.theme:upper(), ADDON_NAME .. ':')
     DEFAULT_CHAT_FRAME:AddMessage(string.join(' ', prefix, ...))
-end
-
----------------------------------------------------------------
---  Minimap Button
----------------------------------------------------------------
-
-local function setupMinimapButton()
-    local LDB = LibStub('LibDataBroker-1.1'):NewDataObject(ADDON_NAME, {
-        type = 'launcher',
-        text = ADDON_NAME,
-        icon = 'Interface\\Icons\\Spell_arcane_portalshattrath',
-        OnClick = function() 
-            if (IsShiftKeyDown()) then
-                core.Config.ToggleFavorites()
-            else
-                core.Config.Toggle()
-            end
-        end,
-        OnTooltipShow = function(tooltip)
-            tooltip:AddLine(string.format('|cff%s%s|r', core.db.theme:upper(), ADDON_NAME .. ' v' .. core.db.version))
-        end
-    })
-
-    local LDBI = LibStub('LibDBIcon-1.0')
-
-    LDBI:Register(ADDON_NAME, LDB)
 end
 
 ---------------------------------------------------------------
@@ -131,12 +105,20 @@ function core:init(event, name)
     if (name ~= ADDON_NAME) then return end
     initDb()
 
+    SLASH_FRAMESTK1 = '/fs' -- For quicker access to frame stack /framestack
+    SlashCmdList.FRAMESTK = function()
+        LoadAddOn('Blizzard_DebugTools')
+        FrameStackTooltip_Toggle()
+    end
+
     SLASH_PocketPortals1 = '/pp'
     SlashCmdList.PocketPortals = HandleSlashCommand
-    setupMinimapButton()
+    core.Config.SetupMinimapButton()
     print(GetBuildInfo())
 
-    core.Config:BuildFavorites()
+    if(core.favoritesDB.isShown)then
+        core.ui.Favorites.Toggle()
+    end
 end
 
 local events = CreateFrame('Frame')

@@ -12,6 +12,11 @@ libs\LibDBIcon-1.0\embeds.xml
 libs\LibDBIcon-1.0\LibDBIcon-1.0\lib.xml
 
 source.lua
-frames.lua
+ui\frames.lua
+ui\tabs.lua
+ui\scrolls.lua
+ui\buttons.lua
+ui\mainui.lua
+ui\favorites.lua
 config.lua
 init.lua
