@@ -23,3 +23,6 @@ Spells, toys and items available to your character are bundled together by categ
 * Add a start(simular to collections) for favorites
 * Configurations for minimap button, ordering and probably favorites
 * Auto update when spell, toy or item is aqcuired
+
+
+pavel savov-skype-sitetirks
