@@ -1,5 +1,5 @@
 # PocketPortals
-preview version 0.3
+preview version 0.3.1
 
 ## Features
 Spells, toys and items available to your character are bundled together by categories remove the need for constantly searching in spell book, toy box and inventory and remove the need to fill your action bars with them.
@@ -15,11 +15,10 @@ Spells, toys and items available to your character are bundled together by categ
     * Right-Click on available item to add or remove item from favorites(current limit is 9 and there is no indication in main ui)
 
 ### Known Issues
-* Druid's 'Teleport: Moonglade' appears in Unobtained after learning 'Dreamwalk'.
 * Toys and items requiring proffession skill appears for characters without said professions.
 
 ### TODO List
 * All 'Known Issues' obviously
-* Add a start(simular to collections) for favorites
+* Add a star(simular to collections) for favorites
 * Configurations for minimap button, ordering and probably favorites
 * Auto update when spell, toy or item is aqcuired

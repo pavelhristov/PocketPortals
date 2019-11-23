@@ -40,6 +40,24 @@ local function buildSection(parent, section, items, isDisabled)
     end
 end
 
+local function isUseableItem(item, class, faction)
+    return (not item.class or item.class == class) and (not item.faction or item.faction == faction)
+end
+
+local function isObtainedItem(item)
+    return (item.type == 'item' and GetItemCount(item.id) > 0) or (item.type == 'spell' and IsPlayerSpell(item.id)) or
+               (item.type == 'toy' and PlayerHasToy(item.id))
+end
+
+local function checkItem(item, obtainedItems, unobtainedItems)
+    if (isObtainedItem(item)) then
+        table.insert(obtainedItems, item)
+    elseif ((not item.unobtainable)) then
+        table.insert(unobtainedItems, item)
+        if (item.prevRank) then checkItem(item.prevRank, obtainedItems, unobtainedItems) end
+    end
+end
+
 local function build(availableTab, unobtainedTab)
     local faction = UnitFactionGroup('player')
     local class = UnitClass('player')
@@ -49,17 +67,10 @@ local function build(availableTab, unobtainedTab)
         local obtainedItems = {}
         local unobtainedItems = {}
 
-        for i = 1, #items do
-            if ((not items[i].class or items[i].class == class) and
-                (not items[i].faction or items[i].faction == faction)) then
-                if ((items[i].type == 'item' and GetItemCount(items[i].id) > 0) or
-                    (items[i].type == 'spell' and IsPlayerSpell(items[i].id)) or
-                    (items[i].type == 'toy' and PlayerHasToy(items[i].id))) then
-                    table.insert(obtainedItems, items[i])
-                elseif ((not items[i].unobtainable)) then
-                    table.insert(unobtainedItems, items[i])
-                end
-            end
+        for i = 1, #items do 
+            if (isUseableItem(items[i], class, faction)) then 
+                checkItem(items[i], obtainedItems, unobtainedItems) 
+            end 
         end
 
         buildSection(availableTab, section, obtainedItems)
@@ -74,7 +85,7 @@ local function CreateMenu()
     local frame = CreateFrame('Frame', 'PocketPortals', UIParent, 'UIPanelDialogTemplate')
     frame:SetSize(340, 400)
     frame:SetPoint(core.db.position.point, nil, core.db.position.relativePoint, core.db.position.xOfs,
-                      core.db.position.yOfs)
+                   core.db.position.yOfs)
     frame:EnableMouse(true)
     frame:SetMovable(true)
     frame:RegisterForDrag('LeftButton')
@@ -129,6 +140,6 @@ function MainUI:Refresh()
     unobtainedTab.margin = 0
 
     build(availableTab, unobtainedTab)
-    
+
     core.ui.Favorites:Refresh()
 end
