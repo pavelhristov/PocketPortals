@@ -126,14 +126,29 @@ Source['Miscellaneous'] = {
         prevRank = {id = 45691, type = 'item', name = 'Inscribed Signet of the Kirin Tor',
         prevRank = {id = 40585, type = 'item', name = 'Signet of the Kirin Tor'}}}},
     {id = 139599, type = 'item', name = 'Empowered Ring of the Kirin Tor'},
+    {id = 132119, type = 'item', name = 'Orgrimmar Portal Stone', quest = true},
+    {id = 132120, type = 'item', name = 'Stormwind Portal Stone', quest = true},
+    {id = 66061, type = 'item', name = 'Bluescale Sigil', quest = true},
+    {id = 140319, type = 'item', name = 'Khadgar\'s Beacon', quest = true},
+    {id = 35230, type = 'item', name = 'Darnarian\'s Scroll of Teleportation'},
+    {id = 167228, type = 'item', name = 'Charm of Returning', quest = true, faction = 'Horde'},
+    {id = 141013, type = 'item', name = 'Scroll of Town Portal: Shala\'nir'},
+    {id = 141014, type = 'item', name = 'Scroll of Town Portal: Sashj\'tar'},
+    {id = 141015, type = 'item', name = 'Scroll of Town Portal: Kal\'delar'},
+    {id = 141016, type = 'item', name = 'Scroll of Town Portal: Faronaar'},
+    {id = 141017, type = 'item', name = 'Scroll of Town Portal: Lian\'tril'},
     -- 8.2
     {id = 169298, type = 'toy', name = 'Frostwolf Insignia', faction = 'Horde'},
     {id = 169297, type = 'toy', name = 'Stormpike Insignia', faction = 'Alliance'},
     {id = 168808, type = 'toy', name = 'Wormhole Generator: Zandalar'},
     {id = 168807, type = 'toy', name = 'Wormhole Generator: Kul Tiras'},
+    {id = 167075, type = 'item', name = 'Ultrasafe Transporter: Mechagon'},
     -- 8.2.5
     {id = 18149, type = 'item', name = 'Rune of Recall', faction = 'Horde', unobtainable = true},
-    {id = 18150, type = 'item', name = 'Rune of Recall', faction = 'Alliance', unobtainable = true}
+    {id = 18150, type = 'item', name = 'Rune of Recall', faction = 'Alliance', unobtainable = true},
+    -- 9.0
+    {id = 181163, type = 'item', name = 'Scroll of Teleport: Theater of Pain'},
+    {id = 172924, type = 'toy', name = 'Wormhole Generator: Shadowlands'}
 }
 
 Source['Class Portals'] = {
@@ -160,7 +175,9 @@ Source['Class Portals'] = {
     {id = 224871, type = 'spell', name = 'Portal: Dalaran - Broken Isles', class = 'Mage'},
     {id = 281402, type = 'spell', name = 'Portal: Dazar\'alor', class = 'Mage', faction = 'Horde'},
     {id = 281400, type = 'spell', name = 'Portal: Boralus', class = 'Mage', faction = 'Alliance'},
-    {id = 50977, type = 'spell', name = 'Death Gate', class = 'Death Knight'}
+    {id = 50977, type = 'spell', name = 'Death Gate', class = 'Death Knight'},
+    -- 9.0
+    {id = 344597, type = 'spell', name = 'Portal: Oribos', class = 'Mage'}
 }
 
 Source['Class Teleports'] = {
@@ -190,8 +207,11 @@ Source['Class Teleports'] = {
     {id = 281403, type = 'spell', name = 'Teleport: Boralus', class = 'Mage', faction = 'Alliance'},
     {id = 193753, type = 'spell', name = 'Dreamwalk', class = 'Druid', 
         prevRank = {id = 18960, type = 'spell', name = 'Teleport: Moonglade', class = 'Druid'}},
+    {id = 136849, type = 'toy', name = 'Nature\'s Beacon', class = 'Druid'},
     {id = 126892, type = 'spell', name = 'Zen Pilgrimage', class = 'Monk'},
-    {id = 126896, type = 'spell', name = 'Zen Pilgrimage: Return', class = 'Monk', unobtainable = true}
+    {id = 126896, type = 'spell', name = 'Zen Pilgrimage: Return', class = 'Monk', unobtainable = true},
+    -- 9.0
+    {id = 344587, type = 'spell', name = 'Teleport: Oribos', class = 'Mage'}
 }
 
 Source['Hearthstones'] = {
@@ -218,5 +238,12 @@ Source['Hearthstones'] = {
     {id = 28585, type = 'item', name = 'Ruby Slippers'},
     {id = 142298, type = 'item', name = 'Astonishingly Scarlet Slippers'},
     -- 8.2
-    {id = 168907, type = 'toy', name = 'Holographic Digitalization Hearthstone'}
+    {id = 168907, type = 'toy', name = 'Holographic Digitalization Hearthstone'},
+    -- 8.2.5
+    {id = 172179, type = 'toy', name = 'Eternal Traveler\'s Hearthstone'},
+    -- 9.0
+    {id = 180290, type = 'toy', name = 'Night Fae Hearthstone'},
+    {id = 182773, type = 'toy', name = 'Necrolord Hearthstone'},
+    {id = 183716, type = 'toy', name = 'Venthyr Sinstone'},
+    {id = 184353, type = 'toy', name = 'Kyrian Hearthstone'}
 }

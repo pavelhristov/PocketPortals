@@ -52,7 +52,7 @@ end
 local function checkItem(item, obtainedItems, unobtainedItems)
     if (isObtainedItem(item)) then
         table.insert(obtainedItems, item)
-    elseif ((not item.unobtainable)) then
+    elseif ((not item.unobtainable) and (not item.quest)) then
         table.insert(unobtainedItems, item)
         if (item.prevRank) then checkItem(item.prevRank, obtainedItems, unobtainedItems) end
     end
@@ -67,10 +67,10 @@ local function build(availableTab, unobtainedTab)
         local obtainedItems = {}
         local unobtainedItems = {}
 
-        for i = 1, #items do 
-            if (isUseableItem(items[i], class, faction)) then 
-                checkItem(items[i], obtainedItems, unobtainedItems) 
-            end 
+        for i = 1, #items do
+            if (isUseableItem(items[i], class, faction)) then
+                checkItem(items[i], obtainedItems, unobtainedItems)
+            end
         end
 
         buildSection(availableTab, section, obtainedItems)

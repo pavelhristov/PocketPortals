@@ -1,5 +1,5 @@
 # PocketPortals
-preview version 0.3.1
+preview version 0.3.2
 
 ## Features
 Spells, toys and items available to your character are bundled together by categories remove the need for constantly searching in spell book, toy box and inventory and remove the need to fill your action bars with them.
