@@ -10,7 +10,9 @@ core.sourceOrder = {
     'Class Portals',
     'Miscellaneous',
     'Challenge Mode Portals - MoP',
-    'Challenge Mode Portals - WoD'
+    'Challenge Mode Portals - WoD',
+    'Keystone Hero Portals - SL',
+    'Fate of Mythic Raids - SL'
 }
 
 --------------------------------------------------------------
@@ -100,7 +102,8 @@ Source['Miscellaneous'] = {
     {id = 166559, type = 'item', name = 'Commander\'s Signet of Battle', faction = 'Horde'},
     {id = 166560, type = 'item', name = 'Captain\'s Signet of Command', faction = 'Alliance'},
     {id = 43824, type = 'toy', name = 'The Schools of Arcane Magic - Mastery'},
-    {id = 144392, type = 'item', name = 'Pugilist\'s Powerful Punching Ring'},
+    {id = 144391, type = 'item', name = 'Pugilist\'s Powerful Punching Ring', faction = 'Alliance'},
+    {id = 144392, type = 'item', name = 'Pugilist\'s Powerful Punching Ring', faction = 'Horde'},
     {id = 21711, type = 'item', name = 'Lunar Festival Invitation'},
     {id = 128502, type = 'item', name = 'Hunter\'s Seeking Crystal'},
     {id = 128503, type = 'item', name = 'Master Hunter\'s Seeking Crystal'},
@@ -137,6 +140,7 @@ Source['Miscellaneous'] = {
     {id = 141015, type = 'item', name = 'Scroll of Town Portal: Kal\'delar'},
     {id = 141016, type = 'item', name = 'Scroll of Town Portal: Faronaar'},
     {id = 141017, type = 'item', name = 'Scroll of Town Portal: Lian\'tril'},
+    {id = 151652, type = 'toy', name = 'Wormhole Generator: Argus'},
     -- 8.2
     {id = 169298, type = 'toy', name = 'Frostwolf Insignia', faction = 'Horde'},
     {id = 169297, type = 'toy', name = 'Stormpike Insignia', faction = 'Alliance'},
@@ -230,8 +234,8 @@ Source['Hearthstones'] = {
     {id = 166747, type = 'toy', name = 'Brewfest Reveler\'s Hearthstone'},
     {id = 163045, type = 'toy', name = 'Headless Horseman\'s Hearthstone'},
     {id = 166746, type = 'toy', name = 'Fire Eater\'s Hearthstone'},
-    {id = 93672, type = 'toy', name = 'Dark Portal'},
-    {id = 54452, type = 'toy', name = 'Ethereal Portal'},
+    {id = 93672, type = 'toy', name = 'Dark Portal', unobtainable = true},
+    {id = 54452, type = 'toy', name = 'Ethereal Portal', unobtainable = true},
     {id = 64488, type = 'toy', name = 'The Innkeeper\'s Daughter'},
     {id = 142542, type = 'toy', name = 'Tome of Town Portal', unobtainable = true},
     {id = 142543, type = 'item', name = 'Scroll of Town Portal', unobtainable = true},
@@ -245,5 +249,36 @@ Source['Hearthstones'] = {
     {id = 180290, type = 'toy', name = 'Night Fae Hearthstone'},
     {id = 182773, type = 'toy', name = 'Necrolord Hearthstone'},
     {id = 183716, type = 'toy', name = 'Venthyr Sinstone'},
-    {id = 184353, type = 'toy', name = 'Kyrian Hearthstone'}
+    {id = 184353, type = 'toy', name = 'Kyrian Hearthstone'},
+    -- 9.2
+    {id = 188952, type = 'toy', name = 'Dominated Hearthstone'},
+    {id = 190196, type = 'toy', name = 'Enlightened Hearthstone', unobtainable = true},
+    {id = 190237, type = 'toy', name = 'Broker Translocation Matrix'},
+    -- 9.2.5
+    {id = 193588, type = 'toy', name = 'Timewalker\'s Hearthstone'}
+}
+
+Source['Keystone Hero Portals - SL'] = {
+    -- 9.2 SL Season 3
+    {id = 354462, type = 'spell', name = 'Path of the Courageous', unobtainable = true},
+    {id = 354463, type = 'spell', name = 'Path of the Plagued', unobtainable = true},
+    {id = 354464, type = 'spell', name = 'Path of the Misty Forest', unobtainable = true},
+    {id = 354465, type = 'spell', name = 'Path of the Sinful Soul', unobtainable = true},
+    {id = 354466, type = 'spell', name = 'Path of the Ascendant', unobtainable = true},
+    {id = 354467, type = 'spell', name = 'Path of the Undefeated', unobtainable = true},
+    {id = 354468, type = 'spell', name = 'Path of the Scheming Loa', unobtainable = true},
+    {id = 354469, type = 'spell', name = 'Path of the Stone Warden', unobtainable = true},
+    {id = 367416, type = 'spell', name = 'Path of the Streetwise Merchant'},
+    -- 9.2.5 SL Season 4,
+    {id = 159896, type = 'spell', name = 'Path of the Iron Prow'},
+    {id = 159900, type = 'spell', name = 'Path of the Dark Rail'},
+    {id = 373262, type = 'spell', name = 'Path of the Fallen Guardian'},
+    {id = 373274, type = 'spell', name = 'Path of the Scrappy Prince'}
+}
+
+Source['Fate of Mythic Raids - SL'] = {
+    -- 9.2.5 SL Mythic Fated Raid
+    {id = 373190, type = 'spell', name = 'Path of the Sire'},
+    {id = 373191, type = 'spell', name = 'Path of the Tormented Soul'},
+    {id = 373192, type = 'spell', name = 'Path of the First Ones'}
 }
