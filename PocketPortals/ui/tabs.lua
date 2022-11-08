@@ -27,7 +27,7 @@ local function SetTabs(frame, numTabs, ...)
     local contents = {}
     local frameName = frame:GetName()
     for i = 1, numTabs do
-        local tab = CreateFrame('Button', frameName .. 'Tab' .. i, frame, 'CharacterFrameTabButtonTemplate')
+        local tab = CreateFrame('Button', frameName .. 'Tab' .. i, frame, 'PanelTabButtonTemplate')
         tab:SetID(i)
         tab:SetText(select(i, ...))
         tab:SetScript('OnClick', Tab_OnClick)
@@ -38,9 +38,9 @@ local function SetTabs(frame, numTabs, ...)
 
         table.insert(contents, tab.content)
         if (i == 1) then
-            tab:SetPoint('TOPLEFT', frame, 'BOTTOMLEFT', 5, 7)
+            tab:SetPoint('TOPLEFT', frame, 'BOTTOMLEFT', 25, 7)
         else
-            tab:SetPoint('TOPLEFT', _G[frameName .. 'Tab' .. (i - 1)], 'TOPRIGHT', -15, 0)
+            tab:SetPoint('TOPLEFT', _G[frameName .. 'Tab' .. (i - 1)], 'TOPRIGHT', 5, 0)
         end
     end
 

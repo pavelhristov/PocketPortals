@@ -2,8 +2,10 @@
 -- Namespaces
 --------------------------------------------------------------
 local ADDON_NAME, core = ...
+local defaultBtnSize = 45
+local btnScale = 0.85
 core.ui = core.ui or {}
-core.ui.Buttons = {SIZE = 37}
+core.ui.Buttons = {SIZE = defaultBtnSize * btnScale}
 
 local Buttons = core.ui.Buttons
 
@@ -56,7 +58,7 @@ end
 
 local function toggleFavoritesHandler(self, button)
     if (self.isDisabled) then return end
-    if (button == 'RightButton' and not IsShiftKeyDown() and not IsControlKeyDown() and not IsAltKeyDown()) then
+    if (button == 'LeftButton' and not IsShiftKeyDown() and not IsControlKeyDown() and not IsAltKeyDown()) then
         local index = nil
         for i, v in ipairs(core.favoritesDB.collection) do
             if (v.id == self.item.id) then
@@ -75,12 +77,12 @@ local function toggleFavoritesHandler(self, button)
             core:Print('You can not have more than ' .. core.favoritesDB.slots .. ' favorites!')
         end
     end
-end
+end  
 
 local function CreateItemSlot(par, item, isDisabled)
     local btn = par.ButtonsPool.get()
     btn:SetParent(par)
-    btn:SetSize(Buttons.SIZE, Buttons.SIZE)
+    btn:SetScale(btnScale)
     btn:SetAttribute('type', item.type)
     btn:SetAttribute('itemid', item.id)
     btn.isDisabled = isDisabled
@@ -94,7 +96,7 @@ local function CreateItemSlot(par, item, isDisabled)
     end
 
     btn.icon:SetTexture(icon)
-    btn:SetAttribute('*' .. item.type .. '1', item.name)
+    btn:SetAttribute('*' .. item.type .. '2', item.name)
     btn:SetAttribute('checkselfcast', '1')
     btn:SetAttribute('checkfocuscast', '1')
 

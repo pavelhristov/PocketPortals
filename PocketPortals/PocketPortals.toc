@@ -1,6 +1,6 @@
-## Interface: 90207
+## Interface: 100000
 ## Title:|cff9CF700PocketPortals|r
-## Version: 0.3.3
+## Version: 0.4
 ## Notes: Collection of spells, toys and items for travelling around Azeroth.
 ## Author: Pavel Hristov
 ## DefaultState: enabled

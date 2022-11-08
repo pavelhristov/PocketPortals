@@ -10,8 +10,8 @@ local mainWIndow, availableTab, unobtainedTab
 local buttonsPool = core.ui.Frames.ButtonsPool()
 local titlesPool = core.ui.Frames.TitlesPool()
 
-local BTN_SPACING = 5
-local SECTION_MARGIN = 25
+local BTN_SPACING = 10
+local SECTION_MARGIN = 20
 
 --------------------------------------------------------------
 -- Main UI
@@ -31,12 +31,12 @@ local function buildSection(parent, section, items, isDisabled)
                 row = row + 1
             end
             local btn = core.ui.Buttons.CreateItemSlot(parent, items[i], isDisabled)
-            btn:SetPoint('TOPLEFT', parent, 'TOPLEFT', BTN_SPACING + (core.ui.Buttons.SIZE + BTN_SPACING) * column,
-                         -SECTION_MARGIN - (core.ui.Buttons.SIZE + BTN_SPACING) * row - parent.margin)
+            btn:SetPoint('TOPLEFT', title, 'TOPLEFT', (core.ui.Buttons.SIZE + BTN_SPACING) * column,
+                         -SECTION_MARGIN - (core.ui.Buttons.SIZE + BTN_SPACING) * row )
             column = column + 1
         end
 
-        parent.margin = parent.margin + BTN_SPACING + SECTION_MARGIN + (core.ui.Buttons.SIZE + BTN_SPACING) * (row + 1)
+        parent.margin = parent.margin + BTN_SPACING + SECTION_MARGIN + (core.ui.Buttons.SIZE + 2.5) * (row + 1)
     end
 end
 
@@ -45,8 +45,9 @@ local function isUseableItem(item, class, faction)
 end
 
 local function isObtainedItem(item)
-    return (item.type == 'item' and GetItemCount(item.id) > 0) or (item.type == 'spell' and IsPlayerSpell(item.id)) or
-               (item.type == 'toy' and PlayerHasToy(item.id))
+    return (item.type == 'item' and GetItemCount(item.id) > 0) or 
+            (item.type == 'spell' and IsPlayerSpell(item.id)) or
+            (item.type == 'toy' and PlayerHasToy(item.id))
 end
 
 local function checkItem(item, obtainedItems, unobtainedItems)

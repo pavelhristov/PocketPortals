@@ -105,12 +105,6 @@ function core:init(event, name)
     if (name ~= ADDON_NAME) then return end
     initDb()
 
-    SLASH_FRAMESTK1 = '/fs' -- For quicker access to frame stack /framestack
-    SlashCmdList.FRAMESTK = function()
-        LoadAddOn('Blizzard_DebugTools')
-        FrameStackTooltip_Toggle()
-    end
-
     SLASH_PocketPortals1 = '/pp'
     SlashCmdList.PocketPortals = HandleSlashCommand
     core.Config.SetupMinimapButton()

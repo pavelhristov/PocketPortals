@@ -1,5 +1,8 @@
 # PocketPortals
-preview version 0.3.2
+preview version 0.4
+
+## Dragonflight update note:
+Due to changes introduced to the ui from the dragonflight pre-patch, the actions for using item/spell/toy and adding/removing favorites has been switched (_Right Click_ to use and _Left Click_ to add/remove favorite).
 
 ## Features
 Spells, toys and items available to your character are bundled together by categories remove the need for constantly searching in spell book, toy box and inventory and remove the need to fill your action bars with them.
@@ -12,7 +15,7 @@ Spells, toys and items available to your character are bundled together by categ
 * slash command **/pp favorites** or minimap shift-click button will toggle favorites ui.
     * Right-Click to toggle favorites
     * Left-Click to drag the ui
-    * Right-Click on available item to add or remove item from favorites(current limit is 9 and there is no indication in main ui)
+    * <s>_Right-Click_</s> Left Click on available item to add or remove item from favorites(current limit is 9 and there is no indication in main ui)
 
 ### Known Issues
 * Toys and items requiring proffession skill appears for characters without said professions.
