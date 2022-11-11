@@ -1,5 +1,5 @@
 # PocketPortals
-preview version 0.4
+preview version 0.4.1
 
 ## Dragonflight update note:
 Due to changes introduced to the ui from the dragonflight pre-patch, the actions for using item/spell/toy and adding/removing favorites has been switched (_Right Click_ to use and _Left Click_ to add/remove favorite).

@@ -57,7 +57,7 @@ local function showDescriptionHandler(self)
 end
 
 local function toggleFavoritesHandler(self, button)
-    if (self.isDisabled) then return end
+    if (self.isDisabled or not self.favorite) then return end
     if (button == 'LeftButton' and not IsShiftKeyDown() and not IsControlKeyDown() and not IsAltKeyDown()) then
         local index = nil
         for i, v in ipairs(core.favoritesDB.collection) do
@@ -96,7 +96,11 @@ local function CreateItemSlot(par, item, isDisabled)
     end
 
     btn.icon:SetTexture(icon)
-    btn:SetAttribute('*' .. item.type .. '2', item.name)
+    if (item.type == 'item') then
+        btn:SetAttribute('*' .. item.type .. '2', item.name)
+    else
+        btn:SetAttribute('*' .. item.type .. '2', item.id)
+    end
     btn:SetAttribute('checkselfcast', '1')
     btn:SetAttribute('checkfocuscast', '1')
 

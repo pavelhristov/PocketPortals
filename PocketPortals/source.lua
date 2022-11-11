@@ -135,12 +135,14 @@ Source['Miscellaneous'] = {
     {id = 140319, type = 'item', name = 'Khadgar\'s Beacon', quest = true},
     {id = 35230, type = 'item', name = 'Darnarian\'s Scroll of Teleportation'},
     {id = 167228, type = 'item', name = 'Charm of Returning', quest = true, faction = 'Horde'},
+    {id = 138448, type = 'item', name = 'Emblem of Margoss'},
     {id = 141013, type = 'item', name = 'Scroll of Town Portal: Shala\'nir'},
     {id = 141014, type = 'item', name = 'Scroll of Town Portal: Sashj\'tar'},
     {id = 141015, type = 'item', name = 'Scroll of Town Portal: Kal\'delar'},
     {id = 141016, type = 'item', name = 'Scroll of Town Portal: Faronaar'},
     {id = 141017, type = 'item', name = 'Scroll of Town Portal: Lian\'tril'},
     {id = 151652, type = 'toy', name = 'Wormhole Generator: Argus'},
+    {id = 153004, type = 'toy', name = 'Unstable Portal Emitter'},
     -- 8.2
     {id = 169298, type = 'toy', name = 'Frostwolf Insignia', faction = 'Horde'},
     {id = 169297, type = 'toy', name = 'Stormpike Insignia', faction = 'Alliance'},
@@ -152,7 +154,9 @@ Source['Miscellaneous'] = {
     {id = 18150, type = 'item', name = 'Rune of Recall', faction = 'Alliance', unobtainable = true},
     -- 9.0
     {id = 181163, type = 'item', name = 'Scroll of Teleport: Theater of Pain'},
-    {id = 172924, type = 'toy', name = 'Wormhole Generator: Shadowlands'}
+    {id = 172924, type = 'toy', name = 'Wormhole Generator: Shadowlands'},
+    -- 10.0
+    {id = 198156, type = 'toy', name = 'Wyrmhole Generator'}
 }
 
 Source['Class Portals'] = {
@@ -181,7 +185,9 @@ Source['Class Portals'] = {
     {id = 281400, type = 'spell', name = 'Portal: Boralus', class = 'Mage', faction = 'Alliance'},
     {id = 50977, type = 'spell', name = 'Death Gate', class = 'Death Knight'},
     -- 9.0
-    {id = 344597, type = 'spell', name = 'Portal: Oribos', class = 'Mage'}
+    {id = 344597, type = 'spell', name = 'Portal: Oribos', class = 'Mage'},
+    -- 10.0
+    {id = 395289, type = 'spell', name = 'Portal: Valdrakken', class = 'Mage', unobtainable = true}
 }
 
 Source['Class Teleports'] = {
@@ -215,7 +221,9 @@ Source['Class Teleports'] = {
     {id = 126892, type = 'spell', name = 'Zen Pilgrimage', class = 'Monk'},
     {id = 126896, type = 'spell', name = 'Zen Pilgrimage: Return', class = 'Monk', unobtainable = true},
     -- 9.0
-    {id = 344587, type = 'spell', name = 'Teleport: Oribos', class = 'Mage'}
+    {id = 344587, type = 'spell', name = 'Teleport: Oribos', class = 'Mage'},
+    -- 10.0
+    {id = 395277, type = 'spell', name = 'Teleport: Valdrakken', class = 'Mage', unobtainable = true}
 }
 
 Source['Hearthstones'] = {
@@ -255,7 +263,9 @@ Source['Hearthstones'] = {
     {id = 190196, type = 'toy', name = 'Enlightened Hearthstone', unobtainable = true},
     {id = 190237, type = 'toy', name = 'Broker Translocation Matrix'},
     -- 9.2.5
-    {id = 193588, type = 'toy', name = 'Timewalker\'s Hearthstone'}
+    {id = 193588, type = 'toy', name = 'Timewalker\'s Hearthstone'},
+    -- 10.0
+    {id = 200630, type = 'toy', name = 'Ohn\'ir Windsage\'s Hearthstone'}
 }
 
 Source['Keystone Hero Portals - SL'] = {

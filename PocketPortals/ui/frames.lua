@@ -92,6 +92,7 @@ local function ButtonsPool()
             btn.cd:Hide()
             table.insert(self._cooldowns, btn.cd)
             btn.cd = nil
+            btn.favorite = false
             table.insert(self._pool, btn)
         end
     end

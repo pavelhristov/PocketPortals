@@ -31,6 +31,7 @@ local function buildSection(parent, section, items, isDisabled)
                 row = row + 1
             end
             local btn = core.ui.Buttons.CreateItemSlot(parent, items[i], isDisabled)
+            btn.favorite = true
             btn:SetPoint('TOPLEFT', title, 'TOPLEFT', (core.ui.Buttons.SIZE + BTN_SPACING) * column,
                          -SECTION_MARGIN - (core.ui.Buttons.SIZE + BTN_SPACING) * row )
             column = column + 1
