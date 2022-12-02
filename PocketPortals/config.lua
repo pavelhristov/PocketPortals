@@ -5,13 +5,17 @@ local ADDON_NAME, core = ...
 core.Config = {}
 
 local Config = core.Config
+local LDB = LibStub('LibDataBroker-1.1')
+local LDBI = LibStub('LibDBIcon-1.0')
 
 ---------------------------------------------------------------
 --  Minimap Button
 ---------------------------------------------------------------
 
 function Config.SetupMinimapButton()
-    local LDB = LibStub('LibDataBroker-1.1'):NewDataObject(ADDON_NAME, {
+    if core.db.minimap.hidden then return end
+
+    local ldb = LDB:NewDataObject(ADDON_NAME, {
         type = 'launcher',
         text = ADDON_NAME,
         icon = 'Interface\\Icons\\Spell_arcane_portalshattrath',
@@ -29,7 +33,19 @@ function Config.SetupMinimapButton()
         end
     })
 
-    local LDBI = LibStub('LibDBIcon-1.0')
+    LDBI:Register(ADDON_NAME, ldb, core.db.minimap)
+end
 
-    LDBI:Register(ADDON_NAME, LDB)
+function Config.ToggleMinimapButton()
+    core.db.minimap.hidden = not core.db.minimap.hidden
+    if core.db.minimap.hidden then
+        LDBI:Hide(ADDON_NAME)
+        return
+    end
+
+    if LDBI:IsRegistered(ADDON_NAME) then 
+        LDBI:Show(ADDON_NAME)
+    else
+        Config.SetupMinimapButton()
+    end
 end

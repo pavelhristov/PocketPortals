@@ -10,6 +10,7 @@ core.commands = {
         core:Print('|cff00cc66/pp|r - toggle ui')
         core:Print('|cff00cc66/pp favorites|r - toggles favorites ui')
         core:Print('|cff00cc66/pp refresh|r - refreshes collection')
+        core:Print('|cff00cc66/pp minimap|r - toggle minimap button')
         core:Print('|cff00cc66/pp help|r - shows help info')
         core:Print('|cff00cc66/pp debug|r - toggle debug mode')
     end,
@@ -22,10 +23,13 @@ core.commands = {
         end
     end,
     ['refresh'] = function() 
-        core.Config:Refresh()
+        core.ui.MainUI:Refresh()
     end,
     ['favorites'] = function()
         core.ui.Favorites.Toggle()
+    end,
+    ['minimap'] = function()
+        core.Config.ToggleMinimapButton()
     end
 }
 
@@ -85,6 +89,10 @@ local function initDb()
     core.db.position.relativePoint = core.db.position.relativePoint or 'CENTER'
     core.db.position.xOfs = core.db.position.xOfs or 0
     core.db.position.yOfs = core.db.position.yOfs or 0
+
+    if(not core.db.minimap) then core.db.minimap = {} end
+    core.db.minimap.minimapPos = core.db.minimap.minimapPos or 240
+    core.db.minimap.hidden = core.db.minimap.hidden or false
     
     if (not PPFavoritesDB) then PPFavoritesDB = {position = {}, collection = {}, slots = 9} end
     core.favoritesDB = PPFavoritesDB
