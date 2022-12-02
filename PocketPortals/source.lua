@@ -4,24 +4,41 @@
 local _, core = ...
 core.Source = {}
 local Source = core.Source
+
+local SECTION = {}
+SECTION.HS = 'Hearthstones'
+SECTION.CLASS_TELEPORT = 'Class Teleports'
+SECTION.CLASS_PORTAL = 'Class Portals'
+SECTION.MISC = 'Miscellaneous'
+SECTION.HP_MOP = 'Hero\'s Path: Mists of Pandaria'
+SECTION.HP_WOD = 'Hero\'s Path: Warlords of Draenor'
+SECTION.HP_LEGION = 'Hero\'s Path: Legion'
+SECTION.HP_BFA = 'Hero\'s Path: Battle for Azeroth'
+SECTION.HP_SL = 'Hero\'s Path: Shadowlands'
+SECTION.HP_DF = 'Hero\'s Path: Dragonflight'
+SECTION.FATED_RAIDS = 'Fate of Mythic Raids'
+
 core.sourceOrder = { 
-    'Hearthstones',
-    'Class Teleports',
-    'Class Portals',
-    'Miscellaneous',
-    'Challenge Mode Portals - MoP',
-    'Challenge Mode Portals - WoD',
-    'Keystone Hero Portals - SL',
-    'Fate of Mythic Raids - SL'
+    SECTION.HS,
+    SECTION.CLASS_TELEPORT,
+    SECTION.CLASS_PORTAL,
+    SECTION.MISC,
+    SECTION.HP_MOP,
+    SECTION.HP_WOD,
+    SECTION.HP_LEGION,
+    SECTION.HP_BFA,
+    SECTION.HP_SL,
+    SECTION.HP_DF,
+    SECTION.FATED_RAIDS
 }
 
 --------------------------------------------------------------
 -- Portals source
 --------------------------------------------------------------
 
-Source['Challenge Mode Portals - WoD'] = {
+Source[SECTION.HP_WOD] = {
     {id = 159895, type = 'spell', name = 'Path of the Bloodmaul', unobtainable = true},
-    {id = 159899, type = 'spell', name = 'Path of the Crescent Moon', unobtainable = true},
+    {id = 159899, type = 'spell', name = 'Path of the Crescent Moon'},
     {id = 159896, type = 'spell', name = 'Path of the Iron Prow', unobtainable = true},
     {id = 159900, type = 'spell', name = 'Path of the Dark Rail', unobtainable = true},
     {id = 159901, type = 'spell', name = 'Path of the Verdant', unobtainable = true},
@@ -30,19 +47,19 @@ Source['Challenge Mode Portals - WoD'] = {
     {id = 159902, type = 'spell', name = 'Path of the Burning Mountain', unobtainable = true}
 }
 
-Source['Challenge Mode Portals - MoP'] = {
+Source[SECTION.HP_MOP] = {
     {id = 131232 , type = 'spell', name = 'Path of the Necromancer', unobtainable = true},
     {id = 131229 , type = 'spell', name = 'Path of the Scarlet Mitre', unobtainable = true},
     {id = 131231 , type = 'spell', name = 'Path of the Scarlet Blade', unobtainable = true},
     {id = 131228 , type = 'spell', name = 'Path of the Black Ox', unobtainable = true},
-    {id = 131204 , type = 'spell', name = 'Path of the Jade Serpent', unobtainable = true},
+    {id = 131204 , type = 'spell', name = 'Path of the Jade Serpent'},
     {id = 131222 , type = 'spell', name = 'Path of the Mogu King', unobtainable = true},
     {id = 131225 , type = 'spell', name = 'Path of the Setting Sun', unobtainable = true},
     {id = 131206 , type = 'spell', name = 'Path of the Shado-Pan', unobtainable = true},
     {id = 131205 , type = 'spell', name = 'Path of the Stout Brew', unobtainable = true}
 }
 
-Source['Miscellaneous'] = {
+Source[SECTION.MISC] = {
     {id = 64457, type = 'item', name = 'The Last Relic of Argus'},
     {id = 63353, type = 'item', name = 'Shroud of Cooperation', faction = 'Horde'},
     {id = 63207, type = 'item', name = 'Wrap of Unity', faction = 'Horde'},
@@ -159,7 +176,7 @@ Source['Miscellaneous'] = {
     {id = 198156, type = 'toy', name = 'Wyrmhole Generator'}
 }
 
-Source['Class Portals'] = {
+Source[SECTION.CLASS_PORTAL] = {
     {id = 11417, type = 'spell', name = 'Portal: Orgrimmar', class = 'Mage', faction = 'Horde'},
     {id = 11420, type = 'spell', name = 'Portal: Thunder Bluff', class = 'Mage', faction = 'Horde'},
     {id = 11418, type = 'spell', name = 'Portal: Undercity', class = 'Mage', faction = 'Horde'},
@@ -187,10 +204,10 @@ Source['Class Portals'] = {
     -- 9.0
     {id = 344597, type = 'spell', name = 'Portal: Oribos', class = 'Mage'},
     -- 10.0
-    {id = 395289, type = 'spell', name = 'Portal: Valdrakken', class = 'Mage', unobtainable = true}
+    {id = 395289, type = 'spell', name = 'Portal: Valdrakken', class = 'Mage'}
 }
 
-Source['Class Teleports'] = {
+Source[SECTION.CLASS_TELEPORT] = {
     {id = 3567, type = 'spell', name = 'Teleport: Orgrimmar', class = 'Mage', faction = 'Horde'},
     {id = 3566, type = 'spell', name = 'Teleport: Thunder Bluff', class = 'Mage', faction = 'Horde'},
     {id = 3563, type = 'spell', name = 'Teleport: Undercity', class = 'Mage', faction = 'Horde'},
@@ -223,10 +240,10 @@ Source['Class Teleports'] = {
     -- 9.0
     {id = 344587, type = 'spell', name = 'Teleport: Oribos', class = 'Mage'},
     -- 10.0
-    {id = 395277, type = 'spell', name = 'Teleport: Valdrakken', class = 'Mage', unobtainable = true}
+    {id = 395277, type = 'spell', name = 'Teleport: Valdrakken', class = 'Mage'}
 }
 
-Source['Hearthstones'] = {
+Source[SECTION.HS] = {
     {id = 556, type = 'spell', name = 'Astral Recall', class = 'Shaman'},
     {id = 6948, type = 'item', name = 'Hearthstone'},
     {id = 110560, type = 'item', name = 'Garrison Hearthstone'},
@@ -268,7 +285,7 @@ Source['Hearthstones'] = {
     {id = 200630, type = 'toy', name = 'Ohn\'ir Windsage\'s Hearthstone'}
 }
 
-Source['Keystone Hero Portals - SL'] = {
+Source[SECTION.HP_SL] = {
     -- 9.2 SL Season 3
     {id = 354462, type = 'spell', name = 'Path of the Courageous', unobtainable = true},
     {id = 354463, type = 'spell', name = 'Path of the Plagued', unobtainable = true},
@@ -278,17 +295,37 @@ Source['Keystone Hero Portals - SL'] = {
     {id = 354467, type = 'spell', name = 'Path of the Undefeated', unobtainable = true},
     {id = 354468, type = 'spell', name = 'Path of the Scheming Loa', unobtainable = true},
     {id = 354469, type = 'spell', name = 'Path of the Stone Warden', unobtainable = true},
-    {id = 367416, type = 'spell', name = 'Path of the Streetwise Merchant'},
-    -- 9.2.5 SL Season 4,
-    {id = 159896, type = 'spell', name = 'Path of the Iron Prow'},
-    {id = 159900, type = 'spell', name = 'Path of the Dark Rail'},
-    {id = 373262, type = 'spell', name = 'Path of the Fallen Guardian'},
-    {id = 373274, type = 'spell', name = 'Path of the Scrappy Prince'}
+    {id = 367416, type = 'spell', name = 'Path of the Streetwise Merchant', unobtainable = true}
 }
 
-Source['Fate of Mythic Raids - SL'] = {
+Source[SECTION.FATED_RAIDS] = {
     -- 9.2.5 SL Mythic Fated Raid
-    {id = 373190, type = 'spell', name = 'Path of the Sire'},
-    {id = 373191, type = 'spell', name = 'Path of the Tormented Soul'},
-    {id = 373192, type = 'spell', name = 'Path of the First Ones'}
+    {id = 373190, type = 'spell', name = 'Path of the Sire', unobtainable = true},
+    {id = 373191, type = 'spell', name = 'Path of the Tormented Soul', unobtainable = true},
+    {id = 373192, type = 'spell', name = 'Path of the First Ones', unobtainable = true}
+}
+
+Source[SECTION.HP_LEGION] = {
+    -- 9.2.5 SL Season 4
+    {id = 373262, type = 'spell', name = 'Path of the Fallen Guardian', unobtainable = true},
+    -- 10.0.2
+    {id = 393764, type = 'spell', name = 'Path of Proven Worth'},
+    {id = 393766, type = 'spell', name = 'Path of the Grand Magistrix'}
+}
+
+Source[SECTION.HP_BFA] = {
+    -- 9.2.5 SL Season 4
+    {id = 373274, type = 'spell', name = 'Path of the Scrappy Prince', unobtainable = true}
+}
+
+Source[SECTION.HP_DF] = {
+    -- 10.0.2
+    {id = 393222, type = 'spell', name = 'Path of the Watcher\'s Legacy', unobtainable = true},
+    {id = 393256, type = 'spell', name = 'Path of the Clutch Defender'},
+    {id = 393262, type = 'spell', name = 'Path of the Windswept Plains'},
+    {id = 393267, type = 'spell', name = 'Path of the Rotting Woods', unobtainable = true},
+    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma'},
+    {id = 393276, type = 'spell', name = 'Path of the Obsidian Hoard', unobtainable = true},
+    {id = 393279, type = 'spell', name = 'Path of Arcane Secrets'},
+    {id = 393283, type = 'spell', name = 'Path of the Titanic Reservoir', unobtainable = true}
 }

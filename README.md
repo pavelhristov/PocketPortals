@@ -1,5 +1,5 @@
 # PocketPortals
-preview version 0.4.1
+preview version 0.4.2
 
 ## Dragonflight update note:
 Due to changes introduced to the ui from the dragonflight pre-patch, the actions for using item/spell/toy and adding/removing favorites has been switched (_Right Click_ to use and _Left Click_ to add/remove favorite).
@@ -12,6 +12,7 @@ Spells, toys and items available to your character are bundled together by categ
 * Spells, toys and items in 'Available' are ready to use, however equipable items will first be equiped and used on second click (after equip cd, if any).
 * Spells, toys and items in 'Unobtained' tab are acquirable by your character.
 * Click **refresh** button to register newly learned spells or obtained items.
+* slash command **/pp minimap** to toggle the minimap button.
 * slash command **/pp favorites** or minimap shift-click button will toggle favorites ui.
     * Right-Click to toggle favorites
     * Left-Click to drag the ui
