@@ -16,7 +16,7 @@ local Buttons = core.ui.Buttons
 local function generateChatLinkHandler(self, button)
     if (core.Config.debug) then print(self:GetAttribute('itemid')) end
 
-    if (button == 'RightButton' and IsShiftKeyDown()) then
+    if (button == 'LeftButton' and IsShiftKeyDown()) then
         if (not self.Link) then
             local itemId = self:GetAttribute('itemid')
             if (self:GetAttribute('type') == 'spell') then

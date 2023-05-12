@@ -18,7 +18,7 @@ function Config.SetupMinimapButton()
     local ldb = LDB:NewDataObject(ADDON_NAME, {
         type = 'launcher',
         text = ADDON_NAME,
-        icon = 'Interface\\Icons\\Spell_arcane_portalshattrath',
+        icon = GetAddOnMetadata(ADDON_NAME, 'IconTexture'),
         OnClick = function() 
             if (IsShiftKeyDown()) then
                 core.ui.Favorites.Toggle()

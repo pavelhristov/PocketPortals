@@ -10,6 +10,7 @@ SECTION.HS = 'Hearthstones'
 SECTION.CLASS_TELEPORT = 'Class Teleports'
 SECTION.CLASS_PORTAL = 'Class Portals'
 SECTION.MISC = 'Miscellaneous'
+SECTION.HP_CATA = 'Hero\'s Path: Cataclysm'
 SECTION.HP_MOP = 'Hero\'s Path: Mists of Pandaria'
 SECTION.HP_WOD = 'Hero\'s Path: Warlords of Draenor'
 SECTION.HP_LEGION = 'Hero\'s Path: Legion'
@@ -23,6 +24,7 @@ core.sourceOrder = {
     SECTION.CLASS_TELEPORT,
     SECTION.CLASS_PORTAL,
     SECTION.MISC,
+    SECTION.HP_CATA,
     SECTION.HP_MOP,
     SECTION.HP_WOD,
     SECTION.HP_LEGION,
@@ -38,7 +40,7 @@ core.sourceOrder = {
 
 Source[SECTION.HP_WOD] = {
     {id = 159895, type = 'spell', name = 'Path of the Bloodmaul', unobtainable = true},
-    {id = 159899, type = 'spell', name = 'Path of the Crescent Moon'},
+    {id = 159899, type = 'spell', name = 'Path of the Crescent Moon', unobtainable = true},
     {id = 159896, type = 'spell', name = 'Path of the Iron Prow', unobtainable = true},
     {id = 159900, type = 'spell', name = 'Path of the Dark Rail', unobtainable = true},
     {id = 159901, type = 'spell', name = 'Path of the Verdant', unobtainable = true},
@@ -52,7 +54,7 @@ Source[SECTION.HP_MOP] = {
     {id = 131229 , type = 'spell', name = 'Path of the Scarlet Mitre', unobtainable = true},
     {id = 131231 , type = 'spell', name = 'Path of the Scarlet Blade', unobtainable = true},
     {id = 131228 , type = 'spell', name = 'Path of the Black Ox', unobtainable = true},
-    {id = 131204 , type = 'spell', name = 'Path of the Jade Serpent'},
+    {id = 131204 , type = 'spell', name = 'Path of the Jade Serpent', unobtainable = true},
     {id = 131222 , type = 'spell', name = 'Path of the Mogu King', unobtainable = true},
     {id = 131225 , type = 'spell', name = 'Path of the Setting Sun', unobtainable = true},
     {id = 131206 , type = 'spell', name = 'Path of the Shado-Pan', unobtainable = true},
@@ -170,10 +172,18 @@ Source[SECTION.MISC] = {
     {id = 18149, type = 'item', name = 'Rune of Recall', faction = 'Horde', unobtainable = true},
     {id = 18150, type = 'item', name = 'Rune of Recall', faction = 'Alliance', unobtainable = true},
     -- 9.0
-    {id = 181163, type = 'item', name = 'Scroll of Teleport: Theater of Pain'},
     {id = 172924, type = 'toy', name = 'Wormhole Generator: Shadowlands'},
+    {id = 180817, type = 'item', name = 'Cypher of Relocation'},
+    {id = 181163, type = 'item', name = 'Scroll of Teleport: Theater of Pain'},
     -- 10.0
-    {id = 198156, type = 'toy', name = 'Wyrmhole Generator'}
+    {id = 198156, type = 'toy', name = 'Wyrmhole Generator'},
+    {id = 200613, type = 'item', name = 'Aylaag Windstone Fragment'},
+    -- 10.0.2
+    {id = 202046, type = 'item', name = 'Lucky Tortollan Charm'},
+    -- 10.0.7
+    {id = 204481, type = 'item', name = 'Morqut Hearth Totem'},
+    -- 10.1
+    {id = 205255, type = 'toy', name = 'Niffen Diggin\' Mitts'}
 }
 
 Source[SECTION.CLASS_PORTAL] = {
@@ -309,23 +319,32 @@ Source[SECTION.HP_LEGION] = {
     -- 9.2.5 SL Season 4
     {id = 373262, type = 'spell', name = 'Path of the Fallen Guardian', unobtainable = true},
     -- 10.0.2
-    {id = 393764, type = 'spell', name = 'Path of Proven Worth'},
-    {id = 393766, type = 'spell', name = 'Path of the Grand Magistrix'}
+    {id = 393764, type = 'spell', name = 'Path of Proven Worth', unobtainable = true},
+    {id = 393766, type = 'spell', name = 'Path of the Grand Magistrix', unobtainable = true},
+    -- 10.1
+    {id = 410078, type = 'spell', name = 'Path of the Earth-Warder'}
 }
 
 Source[SECTION.HP_BFA] = {
     -- 9.2.5 SL Season 4
-    {id = 373274, type = 'spell', name = 'Path of the Scrappy Prince', unobtainable = true}
+    {id = 373274, type = 'spell', name = 'Path of the Scrappy Prince', unobtainable = true},
+    {id = 410071, type = 'spell', name = 'Path of the Freebooter'},
+    {id = 410074, type = 'spell', name = 'Path of Festering Rot'}
 }
 
 Source[SECTION.HP_DF] = {
     -- 10.0.2
-    {id = 393222, type = 'spell', name = 'Path of the Watcher\'s Legacy', unobtainable = true},
-    {id = 393256, type = 'spell', name = 'Path of the Clutch Defender'},
-    {id = 393262, type = 'spell', name = 'Path of the Windswept Plains'},
-    {id = 393267, type = 'spell', name = 'Path of the Rotting Woods', unobtainable = true},
-    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma'},
-    {id = 393276, type = 'spell', name = 'Path of the Obsidian Hoard', unobtainable = true},
-    {id = 393279, type = 'spell', name = 'Path of Arcane Secrets'},
-    {id = 393283, type = 'spell', name = 'Path of the Titanic Reservoir', unobtainable = true}
+    {id = 393222, type = 'spell', name = 'Path of the Watcher\'s Legacy'},
+    {id = 393256, type = 'spell', name = 'Path of the Clutch Defender', unobtainable = true},
+    {id = 393262, type = 'spell', name = 'Path of the Windswept Plains', unobtainable = true},
+    {id = 393267, type = 'spell', name = 'Path of the Rotting Woods'},
+    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma', unobtainable = true},
+    {id = 393276, type = 'spell', name = 'Path of the Obsidian Hoard'},
+    {id = 393279, type = 'spell', name = 'Path of Arcane Secrets', unobtainable = true},
+    {id = 393283, type = 'spell', name = 'Path of the Titanic Reservoir'}
+}
+
+Source[SECTION.HP_CATA] = {
+    -- 10.1
+    {id = 410080, type = 'spell', name = 'Path of Wind\'s Domain'}
 }

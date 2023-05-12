@@ -116,7 +116,6 @@ function core:init(event, name)
     SLASH_PocketPortals1 = '/pp'
     SlashCmdList.PocketPortals = HandleSlashCommand
     core.Config.SetupMinimapButton()
-    print(GetBuildInfo())
 
     if(core.favoritesDB.isShown)then
         core.ui.Favorites.Toggle()
