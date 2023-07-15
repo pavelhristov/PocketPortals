@@ -59,7 +59,7 @@ local function ButtonsPool()
             btn = table.remove(self._pool)
             btn:Show()
         else
-            btn = CreateFrame('BUTTON', nil, nil, 'ActionButtonTemplate, InsecureActionButtonTemplate')
+            btn = CreateFrame('BUTTON', nil, UIParent, 'ActionButtonTemplate, InsecureActionButtonTemplate')
         end
         
         local cd

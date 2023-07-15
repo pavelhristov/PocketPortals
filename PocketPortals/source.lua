@@ -256,9 +256,9 @@ Source[SECTION.CLASS_TELEPORT] = {
 Source[SECTION.HS] = {
     {id = 556, type = 'spell', name = 'Astral Recall', class = 'Shaman'},
     {id = 6948, type = 'item', name = 'Hearthstone'},
-    {id = 110560, type = 'item', name = 'Garrison Hearthstone'},
+    {id = 110560, type = 'toy', name = 'Garrison Hearthstone'},
     {id = 128353, type = 'item', name = 'Admiral\'s Compass'},
-    {id = 140192, type = 'item', name = 'Dalaran Hearthstone'}, 
+    {id = 140192, type = 'toy', name = 'Dalaran Hearthstone'}, 
     {id = 37118, type = 'item', name = 'Scroll of Recall'},
     {id = 44314, type = 'item', name = 'Scroll of Recall II'},
     {id = 44315, type = 'item', name = 'Scroll of Recall III'},
@@ -292,7 +292,9 @@ Source[SECTION.HS] = {
     -- 9.2.5
     {id = 193588, type = 'toy', name = 'Timewalker\'s Hearthstone'},
     -- 10.0
-    {id = 200630, type = 'toy', name = 'Ohn\'ir Windsage\'s Hearthstone'}
+    {id = 200630, type = 'toy', name = 'Ohn\'ir Windsage\'s Hearthstone'},
+    -- 10.1.5
+    {id = 206195, type = 'toy', name = 'Path of the Naaru', unobtainable = true}
 }
 
 Source[SECTION.HP_SL] = {
