@@ -1,7 +1,7 @@
 ## Interface: 100105
 ## Title:|cff9CF700PocketPortals|r
 ## IconTexture: Interface\Icons\Spell_arcane_portalshattrath
-## Version: 0.4.4
+## Version: 0.4.5
 ## Notes: Collection of spells, toys and items for travelling around Azeroth and beyond. 
 ## Author: Pavel Hristov
 ## DefaultState: enabled
