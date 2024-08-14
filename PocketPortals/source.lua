@@ -17,6 +17,7 @@ SECTION.HP_LEGION = 'Hero\'s Path: Legion'
 SECTION.HP_BFA = 'Hero\'s Path: Battle for Azeroth'
 SECTION.HP_SL = 'Hero\'s Path: Shadowlands'
 SECTION.HP_DF = 'Hero\'s Path: Dragonflight'
+SECTION.HP_TWW = 'Hero\'s Path: The War Within'
 SECTION.FATED_RAIDS = 'Fate/Awakening of Mythic Raids'
 
 core.sourceOrder = { 
@@ -31,6 +32,7 @@ core.sourceOrder = {
     SECTION.HP_BFA,
     SECTION.HP_SL,
     SECTION.HP_DF,
+    SECTION.HP_TWW,
     SECTION.FATED_RAIDS
 }
 
@@ -108,6 +110,8 @@ Source[SECTION.MISC] = {
     {id = 92056, type = 'item', name = 'Portal Fuel: Sparkrocket Outpost', faction = 'Horde'},
     {id = 95568, type = 'toy', name = 'Sunreaver Beacon', faction = 'Horde'},
     {id = 95567, type = 'toy', name = 'Kirin Tor Beacon', faction = 'Alliance'},
+    {id = 104110, type = 'item', name = 'Curious Bronze Timepiece', faction = 'Horde'},
+    {id = 104113, type = 'item', name = 'Curious Bronze Timepiece', faction = 'Alliance'},
     {id = 103678, type = 'item', name = 'Time-Lost Artifact'},
     {id = 118662, type = 'item', name = 'Bladespire Relic', faction = 'Horde'},
     {id = 118663, type = 'item', name = 'Relic of Karabor', faction = 'Alliance'},
@@ -184,7 +188,11 @@ Source[SECTION.MISC] = {
     -- 10.0.7
     {id = 204481, type = 'item', name = 'Morqut Hearth Totem'},
     -- 10.1
-    {id = 205255, type = 'toy', name = 'Niffen Diggin\' Mitts'}
+    {id = 205255, type = 'toy', name = 'Niffen Diggin\' Mitts'},
+    -- 11.0
+    {id = 221965, type = 'item', name = 'Prototype: Wormhole Generator: Khaz Algar'},
+    {id = 221966, type = 'toy', name = 'Wormhole Generator: Khaz Algar'},
+    {id = 227669, type = 'item', name = 'Teleportation Scroll', quest = true},
 }
 
 Source[SECTION.CLASS_PORTAL] = {
@@ -263,6 +271,10 @@ Source[SECTION.HS] = {
     {id = 37118, type = 'item', name = 'Scroll of Recall'},
     {id = 44314, type = 'item', name = 'Scroll of Recall II'},
     {id = 44315, type = 'item', name = 'Scroll of Recall III'},
+    {id = 61379, type = 'item', name = 'Gidwin\'s Hearthstone', quest = true},
+    {id = 68808, type = 'item', name = 'Hero\'s Hearthstone', quest = true, faction = 'Alliance'},
+    {id = 68809, type = 'item', name = 'Veteran\'s Hearthstone', quest = true, faction = 'Horde'},
+    {id = 92510, type = 'item', name = 'Vol\'jin\'s Hearthstone', quest = true},
     {id = 162973, type = 'toy', name = 'Greatfather Winter\'s Hearthstone'},
     {id = 165669, type = 'toy', name = 'Lunar Elder\'s Hearthstone'},
     {id = 165670, type = 'toy', name = 'Peddlefeet\'s Lovely Hearthstone'},
@@ -277,11 +289,17 @@ Source[SECTION.HS] = {
     {id = 142543, type = 'item', name = 'Scroll of Town Portal', unobtainable = true},
     {id = 28585, type = 'item', name = 'Ruby Slippers'},
     {id = 142298, type = 'item', name = 'Astonishingly Scarlet Slippers'},
+    {id = 159224, type = 'item', name = 'Zuldazar Hearthstone', unobtainable = true},
     -- 8.2
     {id = 168907, type = 'toy', name = 'Holographic Digitalization Hearthstone'},
     -- 8.2.5
     {id = 172179, type = 'toy', name = 'Eternal Traveler\'s Hearthstone'},
+    {id = 172203, type = 'item', name = 'Cracked Hearthstone', quest = true, faction = 'Horde'},
     -- 9.0
+    {id = 173373, type = 'item', name = 'Faol\'s Hearthstone', quest = true},
+    {id = 173528, type = 'item', name = 'Gilded Hearthstone', quest = true},
+    {id = 173537, type = 'item', name = 'Glowing Hearthstone', quest = true},
+    {id = 173716, type = 'item', name = 'Mossy Hearthstone', quest = true},
     {id = 180290, type = 'toy', name = 'Night Fae Hearthstone'},
     {id = 182773, type = 'toy', name = 'Necrolord Hearthstone'},
     {id = 183716, type = 'toy', name = 'Venthyr Sinstone'},
@@ -291,23 +309,31 @@ Source[SECTION.HS] = {
     {id = 190196, type = 'toy', name = 'Enlightened Hearthstone', unobtainable = true},
     {id = 190237, type = 'toy', name = 'Broker Translocation Matrix'},
     -- 9.2.5
+    {id = 191029, type = 'item', name = 'Lilian\'s Hearthstone', quest = true},
     {id = 193588, type = 'toy', name = 'Timewalker\'s Hearthstone'},
     -- 10.0
     {id = 200630, type = 'toy', name = 'Ohn\'ir Windsage\'s Hearthstone'},
+    -- 10.0.7
+    {id = 201957, type = 'item', name = 'Thrall\'s Hearthstone', quest = true},
     -- 10.1.5
     {id = 206195, type = 'toy', name = 'Path of the Naaru'},
     -- 10.2
     {id = 208704, type = 'toy', name = 'Deepdweller\'s Earthen Hearthstone'},
     {id = 209035, type = 'toy', name = 'Hearthstone of the Flame'},
     -- 10.2.5
-    {id = 212337, type = 'toy', name = 'Stone of the Hearth', unobtainable = true}
+    {id = 208822, type = 'item', name = 'Infinite Hearthstone', unobtainable = true},
+    {id = 212337, type = 'toy', name = 'Stone of the Hearth', unobtainable = true},
+    -- 10.2.7
+    {id = 223988, type = 'item', name = 'Dalaran Hearthstone', quest = true},
+    -- 11.0.2
+    {id = 228940, type = 'toy', name = 'Notorious Thread\'s Hearthstone'}
 }
 
 Source[SECTION.HP_SL] = {
     -- 9.2 SL Season 3
     {id = 354462, type = 'spell', name = 'Path of the Courageous', unobtainable = true},
-    {id = 354463, type = 'spell', name = 'Path of the Plagued', unobtainable = true},
-    {id = 354464, type = 'spell', name = 'Path of the Misty Forest', unobtainable = true},
+    {id = 354463, type = 'spell', name = 'Path of the Plagued'},
+    {id = 354464, type = 'spell', name = 'Path of the Misty Forest'},
     {id = 354465, type = 'spell', name = 'Path of the Sinful Soul', unobtainable = true},
     {id = 354466, type = 'spell', name = 'Path of the Ascendant', unobtainable = true},
     {id = 354467, type = 'spell', name = 'Path of the Undefeated', unobtainable = true},
@@ -322,9 +348,9 @@ Source[SECTION.FATED_RAIDS] = {
     {id = 373191, type = 'spell', name = 'Path of the Tormented Soul', unobtainable = true},
     {id = 373192, type = 'spell', name = 'Path of the First Ones', unobtainable = true},
     -- 10.2.6 DF Mythic Awakened Raid
-    {id = 432254, type = 'spell', name = 'Path of the Primal Prison'},
-    {id = 432257, type = 'spell', name = 'Path of the Bitter Legacy'},
-    {id = 432258, type = 'spell', name = 'Path of the Scorching Dream'}
+    {id = 432254, type = 'spell', name = 'Path of the Primal Prison', unobtainable = true},
+    {id = 432257, type = 'spell', name = 'Path of the Bitter Legacy', unobtainable = true},
+    {id = 432258, type = 'spell', name = 'Path of the Scorching Dream', unobtainable = true}
 }
 
 Source[SECTION.HP_LEGION] = {
@@ -347,19 +373,22 @@ Source[SECTION.HP_BFA] = {
     {id = 410074, type = 'spell', name = 'Path of Festering Rot', unobtainable = true},
     -- 10.2
     {id = 424167, type = 'spell', name = 'Path of Heart\'s Bane', unobtainable = true},
-    {id = 424187, type = 'spell', name = 'Path of the Golden Tomb', unobtainable = true}
+    {id = 424187, type = 'spell', name = 'Path of the Golden Tomb', unobtainable = true},
+    -- 11.0
+    {id = 445418, type = 'spell', name = 'Path of the Besieged Harbor', faction = 'Alliance'},
+    {id = 464256, type = 'spell', name = 'Path of the Besieged Harbor', faction = 'Horde'}
 }
 
 Source[SECTION.HP_DF] = {
     -- 10.0.2
-    {id = 393222, type = 'spell', name = 'Path of the Watcher\'s Legacy'},
-    {id = 393256, type = 'spell', name = 'Path of the Clutch Defender'},
-    {id = 393262, type = 'spell', name = 'Path of the Windswept Plains'},
-    {id = 393267, type = 'spell', name = 'Path of the Rotting Woods'},
-    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma'},
-    {id = 393276, type = 'spell', name = 'Path of the Obsidian Hoard'},
-    {id = 393279, type = 'spell', name = 'Path of Arcane Secrets'},
-    {id = 393283, type = 'spell', name = 'Path of the Titanic Reservoir'},
+    {id = 393222, type = 'spell', name = 'Path of the Watcher\'s Legacy', unobtainable = true},
+    {id = 393256, type = 'spell', name = 'Path of the Clutch Defender', unobtainable = true},
+    {id = 393262, type = 'spell', name = 'Path of the Windswept Plains', unobtainable = true},
+    {id = 393267, type = 'spell', name = 'Path of the Rotting Woods', unobtainable = true},
+    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma', unobtainable = true},
+    {id = 393276, type = 'spell', name = 'Path of the Obsidian Hoard', unobtainable = true},
+    {id = 393279, type = 'spell', name = 'Path of Arcane Secrets', unobtainable = true},
+    {id = 393283, type = 'spell', name = 'Path of the Titanic Reservoir', unobtainable = true},
     -- 10.2
     {id = 424197, type = 'spell', name = 'Path of Twisted Time', unobtainable = true}
 }
@@ -368,5 +397,19 @@ Source[SECTION.HP_CATA] = {
     -- 10.1
     {id = 410080, type = 'spell', name = 'Path of Wind\'s Domain', unobtainable = true},
     -- 10.2
-    {id = 424142, type = 'spell', name = 'Path of the Tidehunter', unobtainable = true}
+    {id = 424142, type = 'spell', name = 'Path of the Tidehunter', unobtainable = true},
+    -- 11.0
+    {id = 445424, type = 'spell', name = 'Path of the Twilight Fortress'}
+}
+
+Source[SECTION.HP_TWW] = {
+    -- 11.0
+    {id = 445269, type = 'spell', name = 'Path of the Corrupted Foundry'},
+    {id = 445414, type = 'spell', name = 'Path of the Arathi Flagship'}, 
+    {id = 445416, type = 'spell', name = 'Path of Nerubian Ascension'},
+    {id = 445417, type = 'spell', name = 'Path of the Ruined City'},
+    {id = 445440, type = 'spell', name = 'Path of the Flaming Brewery', unobtainable = true},
+    {id = 445441, type = 'spell', name = 'Path of the Warding Candles', unobtainable = true},
+    {id = 445443, type = 'spell', name = 'Path of the Fallen Stormriders', unobtainable = true},
+    {id = 445444, type = 'spell', name = 'Path of the Light\'s Reverence', unobtainable = true}
 }

@@ -18,7 +18,7 @@ function Config.SetupMinimapButton()
     local ldb = LDB:NewDataObject(ADDON_NAME, {
         type = 'launcher',
         text = ADDON_NAME,
-        icon = GetAddOnMetadata(ADDON_NAME, 'IconTexture'),
+        icon = C_AddOns.GetAddOnMetadata(ADDON_NAME, 'IconTexture'),
         OnClick = function() 
             if (IsShiftKeyDown()) then
                 core.ui.Favorites.Toggle()
