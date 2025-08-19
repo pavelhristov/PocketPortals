@@ -54,8 +54,8 @@ end
 local function checkItem(item, obtainedItems, unobtainedItems)
     if (isObtainedItem(item)) then
         table.insert(obtainedItems, item)
-    elseif ((not item.unobtainable) and (not item.quest)) then
-        table.insert(unobtainedItems, item)
+    else
+        if ((not item.unobtainable) and (not item.quest)) then table.insert(unobtainedItems, item) end
         if (item.prevRank) then checkItem(item.prevRank, obtainedItems, unobtainedItems) end
     end
 end
