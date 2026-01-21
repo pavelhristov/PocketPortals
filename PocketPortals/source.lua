@@ -10,6 +10,7 @@ SECTION.HS = 'Hearthstones'
 SECTION.CLASS_TELEPORT = 'Class Teleports'
 SECTION.CLASS_PORTAL = 'Class Portals'
 SECTION.MISC = 'Miscellaneous'
+SECTION.HP_WOTLK = 'Hero\'s Path: Wrath of the Lich King'
 SECTION.HP_CATA = 'Hero\'s Path: Cataclysm'
 SECTION.HP_MOP = 'Hero\'s Path: Mists of Pandaria'
 SECTION.HP_WOD = 'Hero\'s Path: Warlords of Draenor'
@@ -18,6 +19,7 @@ SECTION.HP_BFA = 'Hero\'s Path: Battle for Azeroth'
 SECTION.HP_SL = 'Hero\'s Path: Shadowlands'
 SECTION.HP_DF = 'Hero\'s Path: Dragonflight'
 SECTION.HP_TWW = 'Hero\'s Path: The War Within'
+SECTION.HP_MN = 'Hero\'s Path: Midnight'
 SECTION.FATED_RAIDS = 'Fate/Awakening of Mythic Raids'
 
 core.sourceOrder = { 
@@ -25,6 +27,7 @@ core.sourceOrder = {
     SECTION.CLASS_TELEPORT,
     SECTION.CLASS_PORTAL,
     SECTION.MISC,
+    SECTION.HP_WOTLK,
     SECTION.HP_CATA,
     SECTION.HP_MOP,
     SECTION.HP_WOD,
@@ -33,6 +36,7 @@ core.sourceOrder = {
     SECTION.HP_SL,
     SECTION.HP_DF,
     SECTION.HP_TWW,
+    SECTION.HP_MN,
     SECTION.FATED_RAIDS
 }
 
@@ -47,8 +51,10 @@ Source[SECTION.HP_WOD] = {
     {id = 159900, type = 'spell', name = 'Path of the Dark Rail', unobtainable = true},
     {id = 159901, type = 'spell', name = 'Path of the Verdant', unobtainable = true},
     {id = 159897, type = 'spell', name = 'Path of the Vigilant', unobtainable = true},
-    {id = 159898, type = 'spell', name = 'Path of the Skies', unobtainable = true},
-    {id = 159902, type = 'spell', name = 'Path of the Burning Mountain', unobtainable = true}
+    {id = 159898, type = 'spell', name = 'Path of the Skies'},
+    {id = 159902, type = 'spell', name = 'Path of the Burning Mountain', unobtainable = true},
+    -- 12.0
+    {id = 1254557, type = 'spell', name = 'Path of the Crowning Pinnacle'},
 }
 
 Source[SECTION.HP_MOP] = {
@@ -118,7 +124,7 @@ Source[SECTION.MISC] = {
     {id = 168499, type = 'spell', name = 'Home Away from Home', faction = 'Horde'},
     {id = 168487, type = 'spell', name = 'Home Away from Home', faction = 'Alliance'},
     {id = 112059, type = 'toy', name = 'Wormhole Centrifuge'},
-    {id = 141605, type = 'item', name = 'Flight Master\'s Whistle'},
+    {id = 141605, type = 'toy', name = 'Flight Master\'s Whistle'},
     {id = 140493, type = 'item', name = 'Adept\'s Guide to Dimensional Rifting'},
     {id = 129276, type = 'item', name = 'Beginner\'s Guide to Dimensional Rifting'},
     {id = 265225, type = 'spell', name = 'Mole Machine', unobtainable = true},
@@ -177,6 +183,14 @@ Source[SECTION.MISC] = {
     {id = 18150, type = 'item', name = 'Rune of Recall', faction = 'Alliance', unobtainable = true},
     -- 9.0
     {id = 172924, type = 'toy', name = 'Wormhole Generator: Shadowlands'},
+    {id = 173430, type = 'item', name = 'Nexus Teleport Scroll', quest = true},
+    {id = 173523, type = 'item', name = 'Tirisfal Camp Scroll', quest = true},
+    {id = 173527, type = 'item', name = 'Duskwood Scroll', quest = true},
+    {id = 173530, type = 'item', name = 'Duskwood Scroll', quest = true},
+    {id = 173526, type = 'item', name = 'Caer Darrow Scroll', quest = true},
+    {id = 173703, type = 'item', name = 'Purity Jug', quest = true},
+    {id = 173704, type = 'item', name = 'Granary Jug', quest = true},
+    {id = 173706, type = 'item', name = 'Jade Jug', quest = true},
     {id = 180817, type = 'item', name = 'Cypher of Relocation'},
     {id = 181163, type = 'item', name = 'Scroll of Teleport: Theater of Pain'},
     -- 10.0
@@ -191,6 +205,8 @@ Source[SECTION.MISC] = {
     {id = 205456, type = 'item', name = 'Lost Dragonscale', quest = true, faction = 'Alliance'},
     {id = 205458, type = 'item', name = 'Lost Dragonscale', quest = true, faction = 'Horde'},
     {id = 205255, type = 'toy', name = 'Niffen Diggin\' Mitts'},
+    -- 10.2.7
+    {id = 217930, type = 'item', name = 'Nostwin\'s Voucher', unobtainable = true},
     -- 11.0
     {id = 221965, type = 'item', name = 'Prototype: Wormhole Generator: Khaz Algar', quest = true},
     {id = 221966, type = 'toy', name = 'Wormhole Generator: Khaz Algar'},
@@ -203,6 +219,14 @@ Source[SECTION.MISC] = {
         prevRank = {id = 234390, type = 'item', name = 'Gallagio Loyalty Rewards Card: Gold', unobtainable = true,
         prevRank = {id = 234389, type = 'item', name = 'Gallagio Loyalty Rewards Card: Silver'}}}}}},
     {id = 230850, type = 'toy', name = 'Delve-O-Bot 7001'},
+    -- 11.2.5
+    {id = 249229, type = 'item', name = 'Black Temple Scroll', quest = true},
+    {id = 249230, type = 'item', name = 'Temple of Zin-Malor Scroll', quest = true},
+    {id = 238727, type = 'item', name = 'Nostwin\'s Voucher', unobtainable = true},
+    -- 12.0
+    {id = 258736, type = 'item', name = 'Scroll of Town Portal'},
+    {id = 265802, type = 'item', name = 'Tome of Town Portal'},
+    {id = 263933, type = 'toy', name = 'Astalor\'s Summons'},
 }
 
 Source[SECTION.CLASS_PORTAL] = {
@@ -235,7 +259,9 @@ Source[SECTION.CLASS_PORTAL] = {
     -- 10.0
     {id = 395289, type = 'spell', name = 'Portal: Valdrakken', class = 'Mage'},
     -- 11.0
-    {id = 446534, type = 'spell', name = 'Portal: Dornogal', class = 'Mage'}
+    {id = 446534, type = 'spell', name = 'Portal: Dornogal', class = 'Mage'},
+    -- 12.0
+    {id = 1248490, type = 'spell', name = 'Portal: Silvermoon', unobtainable = true},
 }
 
 Source[SECTION.CLASS_TELEPORT] = {
@@ -273,7 +299,9 @@ Source[SECTION.CLASS_TELEPORT] = {
     -- 10.0
     {id = 395277, type = 'spell', name = 'Teleport: Valdrakken', class = 'Mage'},
     -- 11.0
-    {id = 446540, type = 'spell', name = 'Teleport: Dornogal', class = 'Mage'}
+    {id = 446540, type = 'spell', name = 'Teleport: Dornogal', class = 'Mage'},
+    -- 12.0
+    {id = 1264716, type = 'spell', name = 'Teleport: Silvermoon', unobtainable = true},
 }
 
 Source[SECTION.HS] = {
@@ -347,7 +375,12 @@ Source[SECTION.HS] = {
     {id = 236687, type = 'toy', name = 'Explosive Hearthstone'},
     -- 11.2
     {id = 245970, type = 'toy', name = 'P.O.S.T. Master\'s Express Hearthstone'},
-    {id = 246565, type = 'toy', name = 'Cosmic Hearthstone'}
+    {id = 246565, type = 'toy', name = 'Cosmic Hearthstone'},
+    -- 11.2.5,
+    {id = 250411, type = 'item', name = 'Timerunner\'s Hearthstone', unobtainable = true},
+    -- 12.0
+    {id = 257736, type = 'toy', name = 'Lightcalled Hearthstone'},
+    {id = 265100, type = 'toy', name = 'Corewarden\'s Hearthstone'}
 }
 
 Source[SECTION.FATED_RAIDS] = {
@@ -361,6 +394,11 @@ Source[SECTION.FATED_RAIDS] = {
     {id = 432258, type = 'spell', name = 'Path of the Scorching Dream', unobtainable = true},
     -- 11.2 ??
     {id = 1239155, type = 'spell', name = 'Path of the All-Devouring', unobtainable = true}
+}
+
+Source[SECTION.HP_WOTLK] = {
+    -- 12.0
+    {id = 1254555, type = 'spell', name = 'Path of Unyielding Blight'},
 }
 
 Source[SECTION.HP_CATA] = {
@@ -382,7 +420,9 @@ Source[SECTION.HP_LEGION] = {
     {id = 410078, type = 'spell', name = 'Path of the Earth-Warder', unobtainable = true},
     -- 10.2
     {id = 424153, type = 'spell', name = 'Path of Ancient Horrors', unobtainable = true},
-    {id = 424163, type = 'spell', name = 'Path of the Nightmare Lord', unobtainable = true}
+    {id = 424163, type = 'spell', name = 'Path of the Nightmare Lord', unobtainable = true},
+    -- 12.0
+    {id = 1254551, type = 'spell', name = 'Path of Dark Dereliction'},
 }
 
 Source[SECTION.HP_BFA] = {
@@ -406,12 +446,12 @@ Source[SECTION.HP_SL] = {
     {id = 354462, type = 'spell', name = 'Path of the Courageous', unobtainable = true},
     {id = 354463, type = 'spell', name = 'Path of the Plagued', unobtainable = true},
     {id = 354464, type = 'spell', name = 'Path of the Misty Forest', unobtainable = true},
-    {id = 354465, type = 'spell', name = 'Path of the Sinful Soul'},
+    {id = 354465, type = 'spell', name = 'Path of the Sinful Soul', unobtainable = true},
     {id = 354466, type = 'spell', name = 'Path of the Ascendant', unobtainable = true},
     {id = 354467, type = 'spell', name = 'Path of the Undefeated', unobtainable = true},
     {id = 354468, type = 'spell', name = 'Path of the Scheming Loa', unobtainable = true},
     {id = 354469, type = 'spell', name = 'Path of the Stone Warden', unobtainable = true},
-    {id = 367416, type = 'spell', name = 'Path of the Streetwise Merchant'}
+    {id = 367416, type = 'spell', name = 'Path of the Streetwise Merchant', unobtainable = true}
 }
 
 Source[SECTION.HP_DF] = {
@@ -420,7 +460,7 @@ Source[SECTION.HP_DF] = {
     {id = 393256, type = 'spell', name = 'Path of the Clutch Defender', unobtainable = true},
     {id = 393262, type = 'spell', name = 'Path of the Windswept Plains', unobtainable = true},
     {id = 393267, type = 'spell', name = 'Path of the Rotting Woods', unobtainable = true},
-    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma', unobtainable = true},
+    {id = 393273, type = 'spell', name = 'Path of the Draconic Diploma'},
     {id = 393276, type = 'spell', name = 'Path of the Obsidian Hoard', unobtainable = true},
     {id = 393279, type = 'spell', name = 'Path of Arcane Secrets', unobtainable = true},
     {id = 393283, type = 'spell', name = 'Path of the Titanic Reservoir', unobtainable = true},
@@ -431,16 +471,24 @@ Source[SECTION.HP_DF] = {
 Source[SECTION.HP_TWW] = {
     -- 11.0
     {id = 445269, type = 'spell', name = 'Path of the Corrupted Foundry', unobtainable = true},
-    {id = 445414, type = 'spell', name = 'Path of the Arathi Flagship'}, 
+    {id = 445414, type = 'spell', name = 'Path of the Arathi Flagship', unobtainable = true}, 
     {id = 445416, type = 'spell', name = 'Path of Nerubian Ascension', unobtainable = true},
-    {id = 445417, type = 'spell', name = 'Path of the Ruined City'},
+    {id = 445417, type = 'spell', name = 'Path of the Ruined City', unobtainable = true},
     {id = 445440, type = 'spell', name = 'Path of the Flaming Brewery', unobtainable = true},
     {id = 445441, type = 'spell', name = 'Path of the Warding Candles', unobtainable = true},
     {id = 445443, type = 'spell', name = 'Path of the Fallen Stormriders', unobtainable = true},
-    {id = 445444, type = 'spell', name = 'Path of the Light\'s Reverence'},
+    {id = 445444, type = 'spell', name = 'Path of the Light\'s Reverence', unobtainable = true},
     -- 11.1
     {id = 467546, type = 'spell', name = 'Path of the Waterworks', unobtainable = true},
-    {id = 1216786, type = 'spell', name = 'Path of the Circuit Breaker'},
+    {id = 1216786, type = 'spell', name = 'Path of the Circuit Breaker', unobtainable = true},
     -- 11.2
-    {id = 1237215, type = 'spell', name = 'Path of the Eco-Dome'},
+    {id = 1237215, type = 'spell', name = 'Path of the Eco-Dome', unobtainable = true},
+}
+
+Source[SECTION.HP_MN] = {
+    -- 12.0
+    {id = 1254400, type = 'spell', name = 'Path of the Windrunners'},
+    {id = 1254559, type = 'spell', name = 'Path of Maisara Caverns'},
+    {id = 1254563, type = 'spell', name = 'Path of Nexus-Point Xenas'},
+    {id = 1254572, type = 'spell', name = 'Path of Devoted Magistry'},
 }
