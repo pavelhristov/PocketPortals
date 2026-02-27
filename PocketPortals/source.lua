@@ -219,14 +219,17 @@ Source[SECTION.MISC] = {
         prevRank = {id = 234390, type = 'item', name = 'Gallagio Loyalty Rewards Card: Gold', unobtainable = true,
         prevRank = {id = 234389, type = 'item', name = 'Gallagio Loyalty Rewards Card: Silver'}}}}}},
     {id = 230850, type = 'toy', name = 'Delve-O-Bot 7001'},
+    -- 11.2
+    {id = 249699, type = 'item', name = 'Shadowguard Translocator'},
     -- 11.2.5
     {id = 249229, type = 'item', name = 'Black Temple Scroll', quest = true},
     {id = 249230, type = 'item', name = 'Temple of Zin-Malor Scroll', quest = true},
     {id = 238727, type = 'item', name = 'Nostwin\'s Voucher', unobtainable = true},
     -- 12.0
+    {id = 243056, type = 'toy', name = 'Delver\'s Mana-Bound Ethergate'},
+    {id = 248485, type = 'toy', name = 'Wormhole Generator: Quel\'Thalas'},
     {id = 258736, type = 'item', name = 'Scroll of Town Portal'},
-    {id = 265802, type = 'item', name = 'Tome of Town Portal'},
-    {id = 263933, type = 'toy', name = 'Astalor\'s Summons'},
+    {id = 265802, type = 'item', name = 'Tome of Town Portal'}
 }
 
 Source[SECTION.CLASS_PORTAL] = {
@@ -238,7 +241,7 @@ Source[SECTION.CLASS_PORTAL] = {
     {id = 11416, type = 'spell', name = 'Portal: Ironforge', class = 'Mage', faction = 'Alliance'},
     {id = 11419, type = 'spell', name = 'Portal: Darnassus', class = 'Mage', faction = 'Alliance'},
     {id = 49360, type = 'spell', name = 'Portal: Theramore', class = 'Mage', faction = 'Alliance'},
-    {id = 32267, type = 'spell', name = 'Portal: Silvermoon', class = 'Mage', faction = 'Horde'},
+    {id = 32267, type = 'spell', name = 'Portal: Silvermoon (Burning Crusade)', class = 'Mage', faction = 'Horde'},
     {id = 32266, type = 'spell', name = 'Portal: Exodar', class = 'Mage', faction = 'Alliance'},
     {id = 120146, type = 'spell', name = 'Ancient Portal: Dalaran', class = 'Mage'},
     {id = 35717, type = 'spell', name = 'Portal: Shattrath', class = 'Mage', faction = 'Horde'},
@@ -261,7 +264,7 @@ Source[SECTION.CLASS_PORTAL] = {
     -- 11.0
     {id = 446534, type = 'spell', name = 'Portal: Dornogal', class = 'Mage'},
     -- 12.0
-    {id = 1248490, type = 'spell', name = 'Portal: Silvermoon', unobtainable = true},
+    {id = 1259194, type = 'spell', name = 'Portal: Silvermoon City', class = 'Mage'},
 }
 
 Source[SECTION.CLASS_TELEPORT] = {
@@ -301,7 +304,7 @@ Source[SECTION.CLASS_TELEPORT] = {
     -- 11.0
     {id = 446540, type = 'spell', name = 'Teleport: Dornogal', class = 'Mage'},
     -- 12.0
-    {id = 1264716, type = 'spell', name = 'Teleport: Silvermoon', unobtainable = true},
+    {id = 1259190, type = 'spell', name = 'Teleport: Silvermoon City', class = 'Mage'},
 }
 
 Source[SECTION.HS] = {
@@ -380,7 +383,8 @@ Source[SECTION.HS] = {
     {id = 250411, type = 'item', name = 'Timerunner\'s Hearthstone', unobtainable = true},
     -- 12.0
     {id = 257736, type = 'toy', name = 'Lightcalled Hearthstone'},
-    {id = 265100, type = 'toy', name = 'Corewarden\'s Hearthstone'}
+    {id = 263933, type = 'toy', name = 'Preyseeker\'s Hearthstone'},
+    {id = 265100, type = 'toy', name = 'Corewarden\'s Hearthstone'},
 }
 
 Source[SECTION.FATED_RAIDS] = {
