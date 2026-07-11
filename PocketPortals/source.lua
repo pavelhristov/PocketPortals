@@ -228,8 +228,9 @@ Source[SECTION.MISC] = {
     -- 12.0
     {id = 243056, type = 'toy', name = 'Delver\'s Mana-Bound Ethergate'},
     {id = 248485, type = 'toy', name = 'Wormhole Generator: Quel\'Thalas'},
+    {id = 253629, type = 'toy', name = 'Personal Key to the Arcantina'},
     {id = 258736, type = 'item', name = 'Scroll of Town Portal'},
-    {id = 265802, type = 'item', name = 'Tome of Town Portal'}
+    {id = 265802, type = 'item', name = 'Tome of Town Portal'},
 }
 
 Source[SECTION.CLASS_PORTAL] = {
